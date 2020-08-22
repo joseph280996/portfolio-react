@@ -1,4 +1,4 @@
-import { curry, pathSatisfies, test, identity, path } from "ramda";
+import {curry, pathSatisfies, test, identity, path} from "ramda";
 
 const propFilter = curry((pathList, regex) => pathSatisfies(test(regex), pathList));
 
@@ -8,7 +8,6 @@ const propFilter = curry((pathList, regex) => pathSatisfies(test(regex), pathLis
 export default function breakDownAllNodes(nodes) {
   const filterByFileName = propFilter(["fields", "fileName"]);
   const filterByDirectoryName = propFilter(["fields", "directoryName"]);
-
   // top part
   const topNode = nodes.find(filterByFileName(/top/i)) || {};
   // navbar
@@ -18,6 +17,7 @@ export default function breakDownAllNodes(nodes) {
 
   // sections part
   const sectionsNodes = nodes.filter(filterByDirectoryName(/sections/i));
+  console.log(sectionsNodes)
 
   // anchors for NavBar
   const anchors = sectionsNodes.map(path(["frontmatter", "anchor"])).filter(identity);

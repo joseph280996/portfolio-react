@@ -1,12 +1,12 @@
 const path = require("path");
 const getBaseUrl = require("./src/utils/getBaseUrl");
-const { defaultLang, langTextMap = {} } = require("./config/site");
+const {defaultLang, langTextMap = {}} = require("./config/site");
 
 /**
  * add fileName to node for markdown files
  */
-exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = ({node, actions}) => {
+  const {createNodeField} = actions;
 
   if (node.internal.type === "MarkdownRemark") {
     const fileName = path.basename(node.fileAbsolutePath, ".md");
@@ -27,8 +27,8 @@ exports.onCreateNode = ({ node, actions }) => {
 /**
  * define nullable items
  */
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
+exports.createSchemaCustomization = ({actions}) => {
+  const {createTypes} = actions;
   const typeDefs = [
     "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
     `type Frontmatter {
@@ -65,7 +65,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 /**
  * generate i18n top pages
  */
-exports.createPages = ({ graphql, actions: { createPage } }) => {
+exports.createPages = ({graphql, actions: {createPage}}) => {
   const topIndex = path.resolve("./src/templates/top-index.jsx");
 
   return new Promise((resolve, reject) => {
@@ -78,8 +78,9 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
             }
           }
         `,
-      ).then(({ errors, data }) => {
+      ).then(({errors, data}) => {
         if (errors) {
+          // eslint-disable-next-line no-console
           console.log(errors);
           reject(errors);
         }

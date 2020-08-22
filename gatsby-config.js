@@ -1,5 +1,5 @@
 const path = require("path");
-const { title, keywords, description, author, defaultLang, trackingId } = require("./config/site");
+const {title, keywords, description, author, defaultLang, trackingId} = require("./config/site");
 
 module.exports = {
   siteMetadata: {
@@ -22,9 +22,9 @@ module.exports = {
         short_name: "Agency",
         start_url: "/",
         background_color: "#ffffff",
-        theme_color: "#fed136",
+        theme_color: "#3881ab",
         display: "minimal-ui",
-        icon: "content/assets/gatsby-icon.png",
+        icon: "content/assets/logo.png",
       },
     },
     "gatsby-transformer-remark",
@@ -35,6 +35,10 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
+    "gatsby-plugin-eslint",
+    "gatsby-plugin-react-helmet",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -42,10 +46,6 @@ module.exports = {
         path: `${__dirname}/content/assets/images`,
       },
     },
-    "gatsby-plugin-eslint",
-    "gatsby-plugin-react-helmet",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
     "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-sass",
