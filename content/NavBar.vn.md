@@ -1,5 +1,5 @@
 ---
 brand: "Tung Pham"
 menuText: "Menu "
-imageFileName: signature.png
+imageFileName: "signature-transparent-background.png"
 ---

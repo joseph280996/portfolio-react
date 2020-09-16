@@ -110,17 +110,13 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
     },
     allMarkdownRemark: { nodes },
   } = data;
-  console.log(data);
-  console.log(nodes);
   const { topNode, navBarNode, anchors, footerNode, sectionsNodes } = breakDownAllNodes(nodes);
-  console.log(navBarNode);
   let langSelectorPart;
   if (langTextMap != null && Object.keys(langTextMap).length > 1) {
     langSelectorPart = (
       <LanguageSelector langKey={langKey} defaultLang={defaultLang} langTextMap={langTextMap} />
     );
   }
-  console.log(sectionsNodes);
   return (
     <>
       <SEO lang={langKey} title="Top" keywords={keywords} description={description} />
@@ -134,7 +130,6 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
         // dynamically import sections
         sectionsNodes.map(({ frontmatter, fields: { fileName } }, ind) => {
           const sectionComponentName = fileNameToSectionName(fileName);
-          console.log(sectionComponentName);
           const SectionComponent = Sections[sectionComponentName];
 
           return SectionComponent ? (

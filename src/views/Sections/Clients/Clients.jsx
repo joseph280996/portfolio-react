@@ -28,12 +28,12 @@ const Clients = ({ className, frontmatter }) => {
 
 Clients.propTypes = {
   className: PropTypes.string,
-  frontmatter: PropTypes.object,
+  frontmatter: PropTypes.object
 };
 
 Clients.defaultProps = {
   className: null,
-  frontmatter: null,
+  frontmatter: null
 };
 
 export default Clients;

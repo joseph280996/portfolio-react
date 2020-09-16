@@ -22,7 +22,7 @@ module.exports = {
         short_name: "Agency",
         start_url: "/",
         background_color: "#ffffff",
-        theme_color: "#3881ab",
+        theme_color: "#24b0bd",
         display: "minimal-ui",
         icon: "content/assets/logo.png",
       },
@@ -43,7 +43,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/content/assets/images`,
+        path: path.join(__dirname, 'content', 'assets', 'images'),
       },
     },
     "gatsby-plugin-offline",

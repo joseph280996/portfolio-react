@@ -6,14 +6,14 @@ import {
   faPlus,
   faBars,
   faTimes,
-  faGlobe,
+  faGlobe
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
   faFacebookF,
   faLinkedinIn,
   faGithubAlt,
-  faMediumM,
+  faMediumM
 } from "@fortawesome/free-brands-svg-icons";
 
 export const PhoneIcon = makeFAIcon(faPhone);

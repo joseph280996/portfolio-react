@@ -38,7 +38,7 @@ const Portfolio = ({ className, frontmatter }) => {
                 </ul>
               }
             />
-          ),
+          )
         )}
       </Row>
     </PageSection>
@@ -47,12 +47,12 @@ const Portfolio = ({ className, frontmatter }) => {
 
 Portfolio.propTypes = {
   className: PropTypes.string,
-  frontmatter: PropTypes.object,
+  frontmatter: PropTypes.object
 };
 
 Portfolio.defaultProps = {
   className: null,
-  frontmatter: null,
+  frontmatter: null
 };
 
 export default Portfolio;

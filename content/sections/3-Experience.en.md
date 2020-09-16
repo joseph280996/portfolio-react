@@ -1,34 +1,28 @@
 ---
 anchor: "Experience"
 header: "Experience"
-subheader: "Lorem ipsum dolor sit amet consectetur."
+subheader: "A little bit about my background."
 timeline: [
   {
     imageFileName: "about/1.jpg",
-    header: "2009-2011",
-    subheader: "Our Humble Beginnings",
+    header: "Jan 2018 - Jun 2018",
+    subheader: "Research Assistant - Wentworth Institute of Technology",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
   },
   {
     imageFileName: "about/2.jpg",
-    header: "March 2011",
-    subheader: "An Agency is Born",
+    header: "Sept 2019 - Dec 2019",
+    subheader: "React.js Developer Intern - MassEnergize, Inc.",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
   },
   {
     imageFileName: "about/3.jpg",
-    header: "December 2012",
-    subheader: "Transition to Full Service",
+    header: "Oct 2019 - April 2020",
+    subheader: "Member of IT Committee - New England Intercollegiate Vietnamese Student Association",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
   },
   {
-    imageFileName: "about/4.jpg",
-    header: "July 2014",
-    subheader: "Phase Two Expansion",
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-  },
-  {
-    imageContent: "Be Part\r\nOf Our\r\nStory!"
+    imageContent: "More\r\nTo\r\nCome!"
   }
 ]
 ---

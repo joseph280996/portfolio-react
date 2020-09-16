@@ -32,12 +32,12 @@ const About = ({ className, frontmatter }) => {
 
 About.propTypes = {
   className: PropTypes.string,
-  frontmatter: PropTypes.object,
+  frontmatter: PropTypes.object
 };
 
 About.defaultProps = {
   className: null,
-  frontmatter: null,
+  frontmatter: null
 };
 
 export default About;

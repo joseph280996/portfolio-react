@@ -7,7 +7,7 @@ import SectionHeader from "components/SectionHeader";
 import PageSection from "components/PageSection";
 import nl2br from "utils/nl2br";
 
-import "./Experience.scss";
+import "./Education.scss";
 
 const Education = ({ className, frontmatter }) => {
   if (!frontmatter) {
@@ -15,7 +15,6 @@ const Education = ({ className, frontmatter }) => {
   }
 
   const { anchor, header: rootHeader, subheader: rootSubHeader, timeline } = frontmatter;
-  console.log(frontmatter);
   return (
     <PageSection className={className} id={anchor}>
       <Row>
@@ -48,12 +47,12 @@ const Education = ({ className, frontmatter }) => {
 
 Education.propTypes = {
   className: PropTypes.string,
-  frontmatter: PropTypes.object,
+  frontmatter: PropTypes.object
 };
 
 Education.defaultProps = {
   className: null,
-  frontmatter: null,
+  frontmatter: null
 };
 
 export default Education;

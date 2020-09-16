@@ -5,9 +5,9 @@ import { Row, Col } from "react-bootstrap";
 import TeamMember from "components/TeamMember";
 import SectionHeader from "components/SectionHeader";
 import PageSection from "components/PageSection";
-import "./Team.scss";
+import "./SocialMedia.scss";
 
-const Team = ({ className, frontmatter }) => {
+const SocialMedia = ({ className, frontmatter }) => {
   if (!frontmatter) {
     return null;
   }
@@ -17,20 +17,20 @@ const Team = ({ className, frontmatter }) => {
     header: rootHeader,
     subheader: rootSubHeader,
     content: rootContent,
-    teamMember,
+    teamMember
   } = frontmatter;
-
+  // eslint-disable-next-line no-console
+  console.log(teamMember);
+  const { header, ...tmProps } = teamMember;
   return (
     <PageSection className={className} id={anchor}>
       <Row>
         <SectionHeader header={rootHeader} subheader={rootSubHeader} />
       </Row>
-      <Row>
-        {teamMember.map(({ header, ...tmProps }) => (
-          <Col sm={4} key={header}>
-            <TeamMember header={header} {...tmProps} />
-          </Col>
-        ))}
+      <Row className="justify-content-center">
+        <Col sm={4} key={header} className="align-self-center">
+          <TeamMember header={header} {...tmProps} />
+        </Col>
       </Row>
       <Row>
         <Col lg={8} className="mx-auto text-center">
@@ -41,14 +41,14 @@ const Team = ({ className, frontmatter }) => {
   );
 };
 
-Team.propTypes = {
+SocialMedia.propTypes = {
   className: PropTypes.string,
-  frontmatter: PropTypes.object,
+  frontmatter: PropTypes.object
 };
 
-Team.defaultProps = {
+SocialMedia.defaultProps = {
   className: null,
-  frontmatter: null,
+  frontmatter: null
 };
 
-export default Team;
+export default SocialMedia;

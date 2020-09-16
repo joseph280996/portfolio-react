@@ -41,12 +41,12 @@ const Contact = ({ className, frontmatter }) => {
 
 Contact.propTypes = {
   className: PropTypes.string,
-  frontmatter: PropTypes.object,
+  frontmatter: PropTypes.object
 };
 
 Contact.defaultProps = {
   className: null,
-  frontmatter: null,
+  frontmatter: null
 };
 
 export default Contact;
