@@ -1,8 +1,8 @@
 ---
 copyright: "Copyright © Tung Pham 2020"
 social: {
-  twitter: "#",
+  linkedin: "tung-pham-joseph",
   facebook: "j.t.x.pham",
-  github: "#"
+  github: "joseph280996"
 }
 ---

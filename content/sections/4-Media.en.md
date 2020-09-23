@@ -9,8 +9,8 @@ teamMember: {
     subheader: "Wentworth Institute of Technology 2020 Graduate",
     social: {
       facebook: "j.t.x.pham",
-      linkedin: "#",
-      github: "#",
+      linkedin: "tung-pham-joseph",
+      github: "joseph280996",
     }
 }
 ---

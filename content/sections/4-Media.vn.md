@@ -8,9 +8,9 @@ teamMember: {
     header: "Tung Pham",
     subheader: "Software Engineer",
     social: {
-      facebook: "https://www.facebook.com/j.t.x.pham",
-      linkedin: "#",
-      github: "#"
+      facebook: "j.t.x.pham",
+      linkedin: "tung-pham-joseph",
+      github: "joseph280996"
     }
 }
 ---

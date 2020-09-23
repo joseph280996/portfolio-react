@@ -1,7 +1,7 @@
 ---
 anchor: "Portfolio"
 header: "Portfolio"
-subheader: "Projects and researches that I worked on."
+subheader: "Projects and researches that I worked and am working on."
 portfolios: [
   {
     imageFileName: "portfolio/01-thumbnail.jpg",
