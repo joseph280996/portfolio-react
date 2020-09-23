@@ -1,10 +1,22 @@
 // bootstrap
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 /* Global styling for this template */
 body {
   overflow-x: hidden;
   @include body-font;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $primary;
 }
 
 p {

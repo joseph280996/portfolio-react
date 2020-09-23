@@ -1,19 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 
-import Navbar from "views/Navbar";
-import Top from "views/Top";
-import Footer from "views/Footer";
-import * as Sections from "views/Sections";
-import SEO from "components/SEO";
-import LanguageSelector from "components/LanguageSelector";
+import Navbar from 'views/Navbar'
+import Top from 'views/Top'
+import Footer from 'views/Footer'
+import * as Sections from 'views/Sections'
+import SEO from 'components/SEO'
+import LanguageSelector from 'components/LanguageSelector'
 
-import "utils/fixFontAwesome";
-import breakDownAllNodes from "utils/breakDownAllNodes";
-import fileNameToSectionName from "utils/fileNameToSectionName";
+import 'utils/fixFontAwesome'
+import breakDownAllNodes from 'utils/breakDownAllNodes'
+import fileNameToSectionName from 'utils/fileNameToSectionName'
 
-import "../style/main.scss";
+import '../style/main.scss'
 
 /**
  * get file name list from content/sections folder
@@ -34,10 +34,6 @@ export const query = graphql`
         frontmatter {
           brand
           anchor
-          clients {
-            href
-            imageFileName
-          }
           content
           copyright
           header
@@ -47,6 +43,11 @@ export const query = graphql`
           jumpToAnchorText
           menuText
           portfolios {
+            links {
+              name
+              description
+              url
+            }
             content
             extraInfo
             header
@@ -54,8 +55,6 @@ export const query = graphql`
             imageFileNameDetail
             imageFileName
           }
-          privacyHref
-          privacyText
           services {
             content
             header
@@ -83,8 +82,6 @@ export const query = graphql`
             subheader
           }
           telephone
-          termsHref
-          termsText
           title
           timeline {
             content
@@ -101,7 +98,7 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
 const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } }) => {
   const {
@@ -109,13 +106,13 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
       siteMetadata: { keywords, description },
     },
     allMarkdownRemark: { nodes },
-  } = data;
-  const { topNode, navBarNode, anchors, footerNode, sectionsNodes } = breakDownAllNodes(nodes);
-  let langSelectorPart;
+  } = data
+  const { topNode, navBarNode, anchors, footerNode, sectionsNodes } = breakDownAllNodes(nodes)
+  let langSelectorPart
   if (langTextMap != null && Object.keys(langTextMap).length > 1) {
     langSelectorPart = (
       <LanguageSelector langKey={langKey} defaultLang={defaultLang} langTextMap={langTextMap} />
-    );
+    )
   }
   return (
     <>
@@ -129,34 +126,34 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
       {
         // dynamically import sections
         sectionsNodes.map(({ frontmatter, fields: { fileName } }, ind) => {
-          const sectionComponentName = fileNameToSectionName(fileName);
-          const SectionComponent = Sections[sectionComponentName];
+          const sectionComponentName = fileNameToSectionName(fileName)
+          const SectionComponent = Sections[sectionComponentName]
 
           return SectionComponent ? (
             <SectionComponent
               key={sectionComponentName}
-              className={ind % 2 === 1 ? "bg-light" : null}
+              className={ind % 2 === 1 ? 'bg-light' : null}
               frontmatter={frontmatter}
             />
-          ) : null;
+          ) : null
         })
       }
       <Footer frontmatter={footerNode.frontmatter} />
     </>
-  );
-};
+  )
+}
 
 IndexPage.propTypes = {
   data: PropTypes.object.isRequired,
   pathContext: PropTypes.object,
-};
+}
 
 IndexPage.defaultProps = {
   pathContext: {
-    langKey: "en",
-    defaultLang: "en",
+    langKey: 'en',
+    defaultLang: 'en',
     langTextMap: {},
   },
-};
+}
 
-export default IndexPage;
+export default IndexPage

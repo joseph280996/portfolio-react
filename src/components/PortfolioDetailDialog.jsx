@@ -1,9 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Modal, Button } from "react-bootstrap";
-import Image from "components/Image";
-import Icon from "./Icon";
+import { Modal, Button } from 'react-bootstrap'
+import Image from 'components/Image'
+import LinkCard from 'components/LinkCard'
+import Icon from './Icon'
 
 const PortfolioDetailDialog = ({
   onHide,
@@ -13,6 +14,7 @@ const PortfolioDetailDialog = ({
   subheader,
   content,
   extraInfo,
+  links,
   ...restProps
 }) => {
   return (
@@ -35,6 +37,10 @@ const PortfolioDetailDialog = ({
         />
         <p>{content}</p>
         {extraInfo}
+        {links &&
+          links.map(({ url, name, description }) => (
+            <LinkCard key={url} url={url} name={name} description={description} />
+          ))}
       </Modal.Body>
       <Modal.Footer>
         <div className="mx-auto">
@@ -45,8 +51,8 @@ const PortfolioDetailDialog = ({
         </div>
       </Modal.Footer>
     </Modal>
-  );
-};
+  )
+}
 
 PortfolioDetailDialog.propTypes = {
   onHide: PropTypes.func,
@@ -56,16 +62,24 @@ PortfolioDetailDialog.propTypes = {
   subheader: PropTypes.string,
   content: PropTypes.string,
   extraInfo: PropTypes.any,
-};
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      url: PropTypes.string,
+      name: PropTypes.string,
+      description: PropTypes.string,
+    }),
+  ),
+}
 
 PortfolioDetailDialog.defaultProps = {
   onHide: null,
-  imageFileName: "",
+  imageFileName: '',
   imageAlt: null,
-  header: "",
-  subheader: "",
-  content: "",
+  header: '',
+  subheader: '',
+  content: '',
   extraInfo: null,
-};
+  links: null,
+}
 
-export default PortfolioDetailDialog;
+export default PortfolioDetailDialog

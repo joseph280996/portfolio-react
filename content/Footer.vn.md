@@ -2,11 +2,7 @@
 copyright: "Copyright © Tung Pham 2020"
 social: {
   twitter: "#",
-  facebook: "#",
-  medium: "#"
+  facebook: "https://www.facebook.com/j.t.x.pham",
+  github: "#"
 }
-privacyText: "Chính sách bảo mật"
-privacyHref: "#!"
-termsText: "Điều khoản sử dụng"
-termsHref: "#!"
 ---

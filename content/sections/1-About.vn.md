@@ -1,6 +1,6 @@
 ---
 anchor: "Sơ Lược"
-header: "Sơ Lược Về Mình"
+header: "Sơ Lược"
 subheader: "Một chút về mình và những việc mình làm."
 services: [
   {

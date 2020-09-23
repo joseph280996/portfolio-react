@@ -1,20 +1,20 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Row, Col } from "react-bootstrap";
-import TimelineItem from "components/TimelineItem";
-import SectionHeader from "components/SectionHeader";
-import PageSection from "components/PageSection";
-import nl2br from "utils/nl2br";
+import { Row, Col } from 'react-bootstrap'
+import TimelineItem from 'components/TimelineItem'
+import SectionHeader from 'components/SectionHeader'
+import PageSection from 'components/PageSection'
+import nl2br from 'utils/nl2br'
 
-import "./Education.scss";
+import './Experience.scss'
 
-const Education = ({ className, frontmatter }) => {
+const Experience = ({ className, frontmatter }) => {
   if (!frontmatter) {
-    return null;
+    return null
   }
 
-  const { anchor, header: rootHeader, subheader: rootSubHeader, timeline } = frontmatter;
+  const { anchor, header: rootHeader, subheader: rootSubHeader, timeline } = frontmatter
   return (
     <PageSection className={className} id={anchor}>
       <Row>
@@ -42,17 +42,17 @@ const Education = ({ className, frontmatter }) => {
         </Col>
       </Row>
     </PageSection>
-  );
-};
+  )
+}
 
-Education.propTypes = {
+Experience.propTypes = {
   className: PropTypes.string,
-  frontmatter: PropTypes.object
-};
+  frontmatter: PropTypes.object,
+}
 
-Education.defaultProps = {
+Experience.defaultProps = {
   className: null,
-  frontmatter: null
-};
+  frontmatter: null,
+}
 
-export default Education;
+export default Experience
