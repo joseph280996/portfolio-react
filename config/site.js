@@ -1,5 +1,5 @@
 module.exports = {
-  title: "Tung Pham - Info",
+  title: "tungpham.info",
   keywords: [
     "portfolio",
     "personal",

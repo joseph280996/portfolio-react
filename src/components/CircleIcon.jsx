@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Icon from "components/Icon";
+import React from 'react'
+import PropTypes from 'prop-types'
+import Icon from 'components/Icon'
 
-import "./CircleIcon.scss";
+import './CircleIcon.scss'
 
 const CircleIcon = ({ href, iconName }) => (
   <a
@@ -14,16 +14,16 @@ const CircleIcon = ({ href, iconName }) => (
   >
     <Icon iconName={iconName} />
   </a>
-);
+)
 
 CircleIcon.propTypes = {
   href: PropTypes.string,
   iconName: PropTypes.string,
-};
+}
 
 CircleIcon.defaultProps = {
-  href: "",
+  href: '',
   iconName: null,
-};
+}
 
-export default CircleIcon;
+export default CircleIcon

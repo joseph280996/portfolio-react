@@ -6,7 +6,7 @@ import './LinkCard.scss'
 
 const LinkCard = ({ url, name, description }) => {
   return (
-    <a href={url} className="link-no-decoration">
+    <a href={url} target="_blank" rel="noopener noreferrer" className="link-no-decoration">
       <Card>
         <Card.Body>
           <Card.Title>{name}</Card.Title>
