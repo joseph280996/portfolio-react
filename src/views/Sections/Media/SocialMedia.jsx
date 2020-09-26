@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Row, Col } from "react-bootstrap";
-import TeamMember from "components/TeamMember";
-import SectionHeader from "components/SectionHeader";
-import PageSection from "components/PageSection";
-import "./SocialMedia.scss";
+import { Row, Col } from 'react-bootstrap'
+import TeamMember from 'components/TeamMember'
+import SectionHeader from 'components/SectionHeader'
+import PageSection from 'components/PageSection'
+import './SocialMedia.scss'
 
 const SocialMedia = ({ className, frontmatter }) => {
   if (!frontmatter) {
-    return null;
+    return null
   }
 
   const {
@@ -17,11 +17,9 @@ const SocialMedia = ({ className, frontmatter }) => {
     header: rootHeader,
     subheader: rootSubHeader,
     content: rootContent,
-    teamMember
-  } = frontmatter;
-  // eslint-disable-next-line no-console
-  console.log(teamMember);
-  const { header, ...tmProps } = teamMember;
+    teamMember,
+  } = frontmatter
+  const { header, ...tmProps } = teamMember
   return (
     <PageSection className={className} id={anchor}>
       <Row>
@@ -38,17 +36,17 @@ const SocialMedia = ({ className, frontmatter }) => {
         </Col>
       </Row>
     </PageSection>
-  );
-};
+  )
+}
 
 SocialMedia.propTypes = {
   className: PropTypes.string,
-  frontmatter: PropTypes.object
-};
+  frontmatter: PropTypes.object,
+}
 
 SocialMedia.defaultProps = {
   className: null,
-  frontmatter: null
-};
+  frontmatter: null,
+}
 
-export default SocialMedia;
+export default SocialMedia
