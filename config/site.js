@@ -15,7 +15,7 @@ module.exports = {
   ],
   description: "Portfolio website of Tung Pham",
   author: "joseph280996",
-  trackingId: "UA-119418003-5",
+  trackingId: "UA-159926996-1",
   defaultLang: "en",
   langTextMap: {
     en: "English",
