@@ -19,8 +19,6 @@ const TimelineItem = ({
   const subheaderPart = subheader ? <h4 className="subheading">{subheader}</h4> : null
 
   const liClassName = clsx('timeline-item', { 'timeline-inverted': invert })
-  // eslint-disable-next-line no-console
-  console.log(imageFileName === 'about/2.jpg' && 'rounded-circle')
   return (
     <li className={liClassName}>
       <div className={clsx('timeline-image', imageFileName !== 'about/2.jpg' && 'circle')}>
