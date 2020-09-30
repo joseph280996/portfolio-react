@@ -3,6 +3,7 @@
 
 /* Global styling for this template */
 body {
+  background-color: $background;
   overflow-x: hidden;
   @include body-font;
 }

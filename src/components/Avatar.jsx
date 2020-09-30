@@ -1,23 +1,23 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import Image from "components/Image";
-import * as SocialIcons from "components/SocialIcons";
+import Image from 'components/Image'
+import * as SocialIcons from 'components/SocialIcons'
 
-import "./TeamMember.scss";
+import './Avatar.scss'
 
-const TeamMember = ({
+const Avatar = ({
   imageFileName,
   imageAlt,
   header,
   subheader,
   social: { twitter, facebook, linkedin, github, medium },
 }) => {
-  const twitterPart = twitter ? <SocialIcons.Twitter userName={twitter} /> : null;
-  const facebookPart = facebook ? <SocialIcons.Facebook userName={facebook} /> : null;
-  const linkedinPart = linkedin ? <SocialIcons.Linkedin userName={linkedin} /> : null;
-  const githubPart = github ? <SocialIcons.Github userName={github} /> : null;
-  const mediumPart = medium ? <SocialIcons.Medium userName={medium} /> : null;
+  const twitterPart = twitter ? <SocialIcons.Twitter userName={twitter} /> : null
+  const facebookPart = facebook ? <SocialIcons.Facebook userName={facebook} /> : null
+  const linkedinPart = linkedin ? <SocialIcons.Linkedin userName={linkedin} /> : null
+  const githubPart = github ? <SocialIcons.Github userName={github} /> : null
+  const mediumPart = medium ? <SocialIcons.Medium userName={medium} /> : null
 
   return (
     <div className="team-member">
@@ -36,10 +36,10 @@ const TeamMember = ({
         {mediumPart}
       </div>
     </div>
-  );
-};
+  )
+}
 
-TeamMember.propTypes = {
+Avatar.propTypes = {
   imageFileName: PropTypes.string.isRequired,
   imageAlt: PropTypes.string,
   header: PropTypes.string,
@@ -51,12 +51,12 @@ TeamMember.propTypes = {
     github: PropTypes.string,
     medium: PropTypes.string,
   }),
-};
+}
 
-TeamMember.defaultProps = {
+Avatar.defaultProps = {
   imageAlt: null,
-  header: "",
-  subheader: "",
+  header: '',
+  subheader: '',
   social: {
     twitter: null,
     facebook: null,
@@ -64,6 +64,6 @@ TeamMember.defaultProps = {
     github: null,
     medium: null,
   },
-};
+}
 
-export default TeamMember;
+export default Avatar

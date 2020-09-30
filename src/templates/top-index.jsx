@@ -34,7 +34,6 @@ export const query = graphql`
         frontmatter {
           brand
           anchor
-          content
           copyright
           header
           email
@@ -69,18 +68,6 @@ export const query = graphql`
             twitter
           }
           subheader
-          teamMember {
-            header
-            imageFileName
-            social {
-              facebook
-              github
-              linkedin
-              medium
-              twitter
-            }
-            subheader
-          }
           telephone
           title
           timeline {
@@ -130,11 +117,7 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
           const SectionComponent = Sections[sectionComponentName]
 
           return SectionComponent ? (
-            <SectionComponent
-              key={sectionComponentName}
-              className={ind % 2 === 1 ? 'bg-light' : null}
-              frontmatter={frontmatter}
-            />
+            <SectionComponent key={sectionComponentName} frontmatter={frontmatter} />
           ) : null
         })
       }

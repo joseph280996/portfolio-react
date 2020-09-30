@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Row, Col } from 'react-bootstrap'
-import TeamMember from 'components/TeamMember'
+import TeamMember from 'components/Avatar'
 import SectionHeader from 'components/SectionHeader'
 import PageSection from 'components/PageSection'
 import './SocialMedia.scss'

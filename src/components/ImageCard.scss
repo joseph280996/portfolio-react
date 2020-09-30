@@ -20,11 +20,16 @@
       @include serif-font;
     }
     .intro-heading {
-      font-size: 50px;
+      font-size: 25px;
       font-weight: 700;
-      line-height: 50px;
+      line-height: 25px;
       margin-bottom: 25px;
       @include heading-font;
+      .author {
+        text-transform: capitalize;
+        font-weight: inherit;
+        font-size: 10px;
+      }
     }
   }
 }
@@ -53,6 +58,11 @@
         line-height: 75px;
         margin-bottom: 50px;
         @include heading-font;
+        .author {
+          text-transform: capitalize;
+          font-weight: inherit;
+          font-size: 30px;
+        }
       }
     }
   }

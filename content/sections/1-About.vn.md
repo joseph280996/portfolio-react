@@ -1,7 +1,14 @@
 ---
-anchor: "Sơ Lược"
-header: "Sơ Lược"
-subheader: "Một chút về mình và những việc mình làm."
+anchor: "Sơ Lược",
+header: "Sơ Lược",
+subheader: "Mình là ai?",
+imageFileName: "team/1.jpg",
+header: "Tung Pham",
+subheader: "Kỹ Sư Phần Mềm",
+social: {
+  linkedin: "tung-pham-joseph",
+  github: "joseph280996"
+}
 services: [
   {
     iconName: "CodeIcon",

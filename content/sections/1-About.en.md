@@ -1,7 +1,14 @@
 ---
-anchor: "About"
-header: "About"
-subheader: "A little bit about me and what I do."
+anchor: "About",
+header: "About",
+subheader: "Who Am I?",
+imageFileName: "team/1.jpg",
+header: "Tung Pham",
+subheader: "Software Engineer",
+social: {
+  linkedin: "tung-pham-joseph",
+  github: "joseph280996",
+}
 services: [
   {
     iconName: "CodeIcon",

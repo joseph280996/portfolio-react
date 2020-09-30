@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import clsx from 'clsx'
 
 import { Row, Col } from 'react-bootstrap'
 import TimelineItem from 'components/TimelineItem'
@@ -16,7 +17,7 @@ const Experience = ({ className, frontmatter }) => {
 
   const { anchor, header: rootHeader, subheader: rootSubHeader, timeline } = frontmatter
   return (
-    <PageSection className={className} id={anchor}>
+    <PageSection className={clsx('text-white', className)} id={anchor}>
       <Row>
         <SectionHeader header={rootHeader} subheader={rootSubHeader} />
       </Row>
