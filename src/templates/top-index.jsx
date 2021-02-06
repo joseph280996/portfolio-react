@@ -2,18 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import Navbar from 'views/Navbar'
-import Top from 'views/Top'
 import Footer from 'views/Footer'
-import * as Sections from 'views/Sections'
 import SEO from 'components/SEO'
 import LanguageSelector from 'components/LanguageSelector'
 
 import 'utils/fixFontAwesome'
 import breakDownAllNodes from 'utils/breakDownAllNodes'
-import fileNameToSectionName from 'utils/fileNameToSectionName'
 
 import '../style/main.scss'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from '../pages/routes'
 
 /**
  * get file name list from content/sections folder
@@ -41,14 +39,19 @@ export const query = graphql`
           jumpToAnchor
           jumpToAnchorText
           menuText
+          facts
           portfolios {
             links {
               name
               description
               url
             }
-            content
-            extraInfo
+            description
+            extraInfo {
+              startDate
+              publications
+              status
+            }
             header
             subheader
             imageFileNameDetail
@@ -64,7 +67,6 @@ export const query = graphql`
             facebook
             github
             linkedin
-            medium
             twitter
           }
           subheader
@@ -87,40 +89,38 @@ export const query = graphql`
   }
 `
 
-const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } }) => {
+const IndexPage = ({
+  data,
+  pathContext: { langKey, defaultLang, langTextMap },
+}) => {
   const {
     site: {
       siteMetadata: { keywords, description },
     },
     allMarkdownRemark: { nodes },
   } = data
-  const { topNode, navBarNode, anchors, footerNode, sectionsNodes } = breakDownAllNodes(nodes)
+  const { footerNode, ...otherNodes } = breakDownAllNodes(nodes)
   let langSelectorPart
   if (langTextMap != null && Object.keys(langTextMap).length > 1) {
     langSelectorPart = (
-      <LanguageSelector langKey={langKey} defaultLang={defaultLang} langTextMap={langTextMap} />
+      <LanguageSelector
+        langKey={langKey}
+        defaultLang={defaultLang}
+        langTextMap={langTextMap}
+      />
     )
   }
   return (
     <>
-      <SEO lang={langKey} title="Tung Pham" keywords={keywords} description={description} />
-      <Navbar
-        anchors={anchors}
-        frontmatter={navBarNode.frontmatter}
-        extraItems={langSelectorPart}
+      <SEO
+        lang={langKey}
+        title="Tung Pham"
+        keywords={keywords}
+        description={description}
       />
-      <Top frontmatter={topNode.frontmatter} />
-      {
-        // dynamically import sections
-        sectionsNodes.map(({ frontmatter, fields: { fileName } }, ind) => {
-          const sectionComponentName = fileNameToSectionName(fileName)
-          const SectionComponent = Sections[sectionComponentName]
-
-          return SectionComponent ? (
-            <SectionComponent key={sectionComponentName} frontmatter={frontmatter} />
-          ) : null
-        })
-      }
+      <BrowserRouter>
+        <Routes {...otherNodes} langSelectorPart={langSelectorPart} />
+      </BrowserRouter>
       <Footer frontmatter={footerNode.frontmatter} />
     </>
   )

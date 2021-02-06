@@ -1,5 +1,5 @@
 ---
-copyright: "Copyright © Tung Pham 2020"
+copyright: "Tung Pham made with ❤️ in 2020"
 social: {
   linkedin: "tung-pham-joseph",
   facebook: "j.t.x.pham",

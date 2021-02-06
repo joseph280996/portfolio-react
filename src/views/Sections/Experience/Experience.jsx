@@ -19,7 +19,12 @@ const Experience = ({ className, frontmatter }) => {
   return (
     <PageSection className={clsx('text-white', className)} id={anchor}>
       <Row>
-        <SectionHeader header={rootHeader} subheader={rootSubHeader} />
+        <SectionHeader
+          className="text-center"
+          lg={12}
+          header={rootHeader}
+          subheader={rootSubHeader}
+        />
       </Row>
       <Row>
         <Col lg={12}>

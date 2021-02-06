@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import clsx from 'clsx'
 
 import { Row } from 'react-bootstrap'
 import SectionHeader from 'components/SectionHeader'
@@ -17,12 +16,17 @@ const Portfolio = ({ className, frontmatter }) => {
   return (
     <PageSection className={className} id={anchor}>
       <Row>
-        <SectionHeader className="text-white" header={rootHeader} subheader={rootSubHeader} />
+        <SectionHeader
+          lg={12}
+          className="text-white text-center"
+          header={rootHeader}
+          subheader={rootSubHeader}
+        />
       </Row>
       <Row>
         {portfolios.map(
           ({
-            content,
+            description,
             extraInfo,
             header,
             imageFileName,
@@ -35,15 +39,9 @@ const Portfolio = ({ className, frontmatter }) => {
               imageFileName={imageFileName}
               header={header}
               subheader={subheader}
-              content={content}
+              description={description}
               imageFileNameDetail={imageFileNameDetail}
-              extraInfo={
-                <ul>
-                  {extraInfo.map((ei) => (
-                    <li key={ei}>{ei}</li>
-                  ))}
-                </ul>
-              }
+              extraInfo={extraInfo}
               links={links}
             />
           ),

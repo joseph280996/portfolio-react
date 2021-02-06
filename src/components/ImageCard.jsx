@@ -2,22 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
 
-import { Container, Card } from 'react-bootstrap'
+import { Card, Container } from 'react-bootstrap'
 import Image from 'components/Image'
 import './ImageCard.scss'
 
 const ImageCard = ({ className, imageFileName, imageAlt, header, subheader, extraInfo }) => {
-  const [quote, author] = header.split('-')
   return (
-    <Card className={clsx('image-card bg-dark text-white text-center', className)}>
+    <Card className={clsx('image-card bg-dark text-white', className)}>
       <Image className="image" fileName={imageFileName} alt={imageAlt || header || subheader} />
-      <Card.ImgOverlay className="no-padding">
+      <Card.ImgOverlay className="no-padding content">
         <Container>
           <div className="intro-text">
-            <div className="intro-heading text-uppercase">
-              {quote}
-              <span className="author">-{author}</span>
-            </div>
+            <div className="intro-heading text-uppercase">{header}</div>
             <div className="intro-lead-in">{subheader}</div>
             {extraInfo}
           </div>
