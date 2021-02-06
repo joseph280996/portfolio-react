@@ -12,6 +12,7 @@
     @include heading-font;
   }
   .navbar-brand {
+    width: 100px;
     &.active,
     &:active,
     &:focus,
@@ -22,8 +23,8 @@
 }
 @media (min-width: 992px) {
   .navbar-root {
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
     -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
@@ -31,6 +32,7 @@
     background-color: transparent;
     .navbar-brand {
       width: 150px;
+      margin-left: 200px;
     }
     &.navbar-shrink {
       padding-top: 0;
@@ -38,7 +40,7 @@
       background-color: $gray-900;
       .navbar-brand {
         font-size: 1.25em;
-        padding: 12px 0;
+        padding: 0px 0;
       }
     }
   }

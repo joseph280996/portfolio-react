@@ -23,7 +23,12 @@ const SocialMedia = ({ className, frontmatter }) => {
   return (
     <PageSection className={className} id={anchor}>
       <Row>
-        <SectionHeader header={rootHeader} subheader={rootSubHeader} />
+        <SectionHeader
+          className="text-center"
+          lg={12}
+          header={rootHeader}
+          subheader={rootSubHeader}
+        />
       </Row>
       <Row className="justify-content-center">
         <Col sm={4} key={header} className="align-self-center">

@@ -41,14 +41,19 @@ export const query = graphql`
           jumpToAnchor
           jumpToAnchorText
           menuText
+          facts
           portfolios {
             links {
               name
               description
               url
             }
-            content
-            extraInfo
+            description
+            extraInfo {
+              startDate
+              publications
+              status
+            }
             header
             subheader
             imageFileNameDetail
@@ -64,7 +69,6 @@ export const query = graphql`
             facebook
             github
             linkedin
-            medium
             twitter
           }
           subheader
@@ -87,23 +91,41 @@ export const query = graphql`
   }
 `
 
-const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } }) => {
+const IndexPage = ({
+  data,
+  pathContext: { langKey, defaultLang, langTextMap },
+}) => {
   const {
     site: {
       siteMetadata: { keywords, description },
     },
     allMarkdownRemark: { nodes },
   } = data
-  const { topNode, navBarNode, anchors, footerNode, sectionsNodes } = breakDownAllNodes(nodes)
+  const {
+    topNode,
+    navBarNode,
+    anchors,
+    footerNode,
+    sectionsNodes,
+  } = breakDownAllNodes(nodes)
   let langSelectorPart
   if (langTextMap != null && Object.keys(langTextMap).length > 1) {
     langSelectorPart = (
-      <LanguageSelector langKey={langKey} defaultLang={defaultLang} langTextMap={langTextMap} />
+      <LanguageSelector
+        langKey={langKey}
+        defaultLang={defaultLang}
+        langTextMap={langTextMap}
+      />
     )
   }
   return (
     <>
-      <SEO lang={langKey} title="Tung Pham" keywords={keywords} description={description} />
+      <SEO
+        lang={langKey}
+        title="Tung Pham"
+        keywords={keywords}
+        description={description}
+      />
       <Navbar
         anchors={anchors}
         frontmatter={navBarNode.frontmatter}
@@ -117,7 +139,10 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
           const SectionComponent = Sections[sectionComponentName]
 
           return SectionComponent ? (
-            <SectionComponent key={sectionComponentName} frontmatter={frontmatter} />
+            <SectionComponent
+              key={sectionComponentName}
+              frontmatter={frontmatter}
+            />
           ) : null
         })
       }

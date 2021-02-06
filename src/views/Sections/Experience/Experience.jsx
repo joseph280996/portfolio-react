@@ -15,30 +15,52 @@ const Experience = ({ className, frontmatter }) => {
     return null
   }
 
-  const { anchor, header: rootHeader, subheader: rootSubHeader, timeline } = frontmatter
+  const {
+    anchor,
+    header: rootHeader,
+    subheader: rootSubHeader,
+    timeline,
+  } = frontmatter
+
+  console.log(timeline)
+
   return (
     <PageSection className={clsx('text-white', className)} id={anchor}>
       <Row>
-        <SectionHeader header={rootHeader} subheader={rootSubHeader} />
+        <SectionHeader
+          className="text-center"
+          lg={12}
+          header={rootHeader}
+          subheader={rootSubHeader}
+        />
       </Row>
       <Row>
         <Col lg={12}>
           <ul className="timeline">
-            {timeline.map(({ content, header, imageContent, imageFileName, subheader }, ind) => (
-              <TimelineItem
-                invert={ind % 2 === 1}
-                key={header}
-                imageFileName={imageFileName}
-                header={header}
-                subheader={subheader}
-                content={content}
-                imageContent={
-                  imageContent ? (
-                    <div dangerouslySetInnerHTML={{ __html: `<h4>${nl2br(imageContent)}</h4>` }} />
-                  ) : null
-                }
-              />
-            ))}
+            {timeline.map(
+              (
+                { content, header, imageContent, imageFileName, subheader },
+                ind,
+              ) => (
+                <TimelineItem
+                  invert={ind % 2 === 1}
+                  key={header}
+                  imageFileName={imageFileName}
+                  header={header}
+                  subheader={subheader}
+                  content={content}
+                  imageContent={
+                    imageContent ? (
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: `<h4>${nl2br(imageContent)}</h4>`,
+                        }}
+                      />
+                    ) : null
+                  }
+                />
+              ),
+            )}
           </ul>
         </Col>
       </Row>

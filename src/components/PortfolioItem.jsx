@@ -13,7 +13,7 @@ const PortfolioItem = ({
   imageAlt,
   header,
   subheader,
-  content,
+  description,
   imageFileNameDetail,
   imageAltDetail,
   extraInfo,
@@ -49,7 +49,7 @@ const PortfolioItem = ({
           </div>
         </a>
         <div className="portfolio-caption">
-          <h4>{header}</h4>
+          <h2>{header}</h2>
           {subheader ? <p className="text-muted">{subheader}</p> : null}
         </div>
       </Col>
@@ -60,7 +60,7 @@ const PortfolioItem = ({
         imageAlt={imageAltDetail || imageAlt}
         header={header}
         subheader={subheader}
-        content={content}
+        description={description}
         extraInfo={extraInfo}
         links={links}
       />
@@ -73,7 +73,7 @@ PortfolioItem.propTypes = {
   imageAlt: PropTypes.string,
   header: PropTypes.string.isRequired,
   subheader: PropTypes.string,
-  content: PropTypes.string,
+  description: PropTypes.string,
   imageFileNameDetail: PropTypes.string,
   imageAltDetail: PropTypes.string,
   extraInfo: PropTypes.any,
@@ -89,7 +89,7 @@ PortfolioItem.propTypes = {
 PortfolioItem.defaultProps = {
   imageAlt: '',
   subheader: '',
-  content: '',
+  description: '',
   imageFileNameDetail: '',
   imageAltDetail: '',
   extraInfo: null,

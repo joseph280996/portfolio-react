@@ -16,15 +16,28 @@ const TimelineItem = ({
   content,
 }) => {
   const headerPart = header ? <h4>{header}</h4> : null
-  const subheaderPart = subheader ? <h4 className="subheading">{subheader}</h4> : null
+  const subheaderPart = subheader ? (
+    <h4 className="subheading">{subheader}</h4>
+  ) : null
 
   const liClassName = clsx('timeline-item', { 'timeline-inverted': invert })
+
+  console.log(imageFileName)
+
   return (
     <li className={liClassName}>
-      <div className={clsx('timeline-image', imageFileName !== 'about/2.jpg' && 'circle')}>
+      <div
+        className={clsx(
+          'timeline-image',
+          imageFileName !== 'about/2.jpg' && 'circle',
+        )}
+      >
         {imageContent || (
           <Image
-            className={clsx(imageFileName !== 'about/2.jpg' && 'rounded-circle', 'img-fluid')}
+            className={clsx(
+              imageFileName !== 'about/2.jpg' && 'rounded-circle',
+              'img-fluid',
+            )}
             fileName={imageFileName}
             alt={imageAlt || header || subheader}
           />

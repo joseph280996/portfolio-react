@@ -28,6 +28,9 @@ const PortfolioDetailDialog = ({
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">{header}</Modal.Title>
       </Modal.Header>
+      <div>
+        {extraInfo.startDate} | {extraInfo.status}
+      </div>
       <Modal.Body className="mx-auto">
         <p className="item-intro text-muted">{subheader}</p>
         <Image
@@ -36,7 +39,13 @@ const PortfolioDetailDialog = ({
           alt={imageAlt || header || subheader}
         />
         <p>{content}</p>
-        {extraInfo}
+        {extraInfo.publications && (
+          <ul>
+            {extraInfo.publications.map((publication) => (
+              <li key={publication}>{publication}</li>
+            ))}
+          </ul>
+        )}
         {links &&
           links.map(({ url, name, description }) => (
             <LinkCard key={url} url={url} name={name} description={description} />
