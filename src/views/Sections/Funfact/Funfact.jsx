@@ -7,6 +7,7 @@ import SectionContent from 'components/SectionContent'
 import PageSection from 'components/PageSection'
 import Avatar from 'components/Avatar'
 import './Funfact.scss'
+import useSmoothScrollTo from 'hooks/useSmoothScrollTo'
 
 const Funfact = (props) => {
   const { className, frontmatter } = props
@@ -20,28 +21,41 @@ const Funfact = (props) => {
     imageFileName,
     subheader: rootSubHeader,
     facts,
+    jumpToAnchor,
+    jumpToAnchorText,
   } = frontmatter
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const scrollToSection = useSmoothScrollTo(jumpToAnchor)
 
   return (
     <PageSection className={className} id={anchor}>
+      <Row className="justify-content-md-center">
+        <SectionHeader
+          className="text-white"
+          header={rootHeader}
+          subheader={rootSubHeader}
+        />
+      </Row>
       <Row>
-        <Col lg={4}>
+        <Col className="Funfact-image" lg={4}>
           <Avatar imageFileName={imageFileName} imageAlt={imageFileName} />
         </Col>
-        <Col lg={8}>
-          <SectionHeader
-            className="text-white"
-            header={rootHeader}
-            subheader={rootSubHeader}
-          />
-          <SectionContent className="section-content text-white">
-            <ul>
-              {facts.map((fact) => (
-                <li key={fact}>{fact}</li>
-              ))}
-            </ul>
-            <Button type="button">See What I&apos;m Up To &gt;</Button>
-          </SectionContent>
+        <Col lg={8} className="Funfact-content">
+          <div className="Funfact-contentWrapper">
+            <SectionContent className="section-content text-white">
+              <ul className="Funfact-items">
+                {facts.map((fact) => (
+                  <li className="Funfact-item" key={fact}>
+                    {fact}
+                  </li>
+                ))}
+              </ul>
+              <Button type="button" onClick={scrollToSection}>
+                {jumpToAnchorText}
+              </Button>
+            </SectionContent>
+          </div>
         </Col>
       </Row>
     </PageSection>

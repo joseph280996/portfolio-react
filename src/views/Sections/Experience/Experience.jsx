@@ -22,8 +22,6 @@ const Experience = ({ className, frontmatter }) => {
     timeline,
   } = frontmatter
 
-  console.log(timeline)
-
   return (
     <PageSection className={clsx('text-white', className)} id={anchor}>
       <Row>
@@ -39,7 +37,14 @@ const Experience = ({ className, frontmatter }) => {
           <ul className="timeline">
             {timeline.map(
               (
-                { content, header, imageContent, imageFileName, subheader },
+                {
+                  url,
+                  content,
+                  header,
+                  imageContent,
+                  imageFileName,
+                  subheader,
+                },
                 ind,
               ) => (
                 <TimelineItem
@@ -58,6 +63,7 @@ const Experience = ({ className, frontmatter }) => {
                       />
                     ) : null
                   }
+                  url={url}
                 />
               ),
             )}

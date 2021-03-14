@@ -7,6 +7,7 @@ import Image from 'components/Image'
 import './TimelineItem.scss'
 
 const TimelineItem = ({
+  url,
   invert,
   imageFileName,
   imageAlt,
@@ -22,8 +23,6 @@ const TimelineItem = ({
 
   const liClassName = clsx('timeline-item', { 'timeline-inverted': invert })
 
-  console.log(imageFileName)
-
   return (
     <li className={liClassName}>
       <div
@@ -33,14 +32,13 @@ const TimelineItem = ({
         )}
       >
         {imageContent || (
-          <Image
-            className={clsx(
-              imageFileName !== 'about/2.jpg' && 'rounded-circle',
-              'img-fluid',
-            )}
-            fileName={imageFileName}
-            alt={imageAlt || header || subheader}
-          />
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            <Image
+              className="rounded-circle img-fluid"
+              fileName={imageFileName}
+              alt={imageAlt || header || subheader}
+            />
+          </a>
         )}
       </div>
       <div className="timeline-panel">
@@ -57,6 +55,7 @@ const TimelineItem = ({
 }
 
 TimelineItem.propTypes = {
+  url: PropTypes.string,
   invert: PropTypes.bool,
   imageFileName: PropTypes.string,
   imageAlt: PropTypes.string,
@@ -67,6 +66,7 @@ TimelineItem.propTypes = {
 }
 
 TimelineItem.defaultProps = {
+  url: '',
   invert: false,
   imageFileName: '',
   imageAlt: '',

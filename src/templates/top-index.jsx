@@ -75,6 +75,7 @@ export const query = graphql`
           telephone
           title
           timeline {
+            url
             content
             header
             imageContent
@@ -134,7 +135,7 @@ const IndexPage = ({
       <Top frontmatter={topNode.frontmatter} />
       {
         // dynamically import sections
-        sectionsNodes.map(({ frontmatter, fields: { fileName } }, ind) => {
+        sectionsNodes.map(({ frontmatter, fields: { fileName } }) => {
           const sectionComponentName = fileNameToSectionName(fileName)
           const SectionComponent = Sections[sectionComponentName]
 
