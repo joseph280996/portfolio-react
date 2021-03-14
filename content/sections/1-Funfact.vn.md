@@ -15,6 +15,6 @@ facts: [
   "I listen to all kinds of music but prefer classical and lo-fi while working 🎧",
   "My favorite classical artists are Chopin, Mozart and Vivaldi but I can't name their pieces 🎼",
   "My favorite show is Rap Viet 📺"
-],
+]
 nextAnchor: "Portfolio"
 ---
