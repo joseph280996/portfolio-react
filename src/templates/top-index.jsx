@@ -2,18 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-import Navbar from 'views/Navbar'
-import Top from 'views/Top'
 import Footer from 'views/Footer'
-import * as Sections from 'views/Sections'
 import SEO from 'components/SEO'
 import LanguageSelector from 'components/LanguageSelector'
 
 import 'utils/fixFontAwesome'
 import breakDownAllNodes from 'utils/breakDownAllNodes'
-import fileNameToSectionName from 'utils/fileNameToSectionName'
 
 import '../style/main.scss'
+import { BrowserRouter } from 'react-router-dom'
+import Routes from '../pages/routes'
 
 /**
  * get file name list from content/sections folder
