@@ -6,7 +6,7 @@ content: "I'm mostly active on Facebook but feel free to connect and follow me o
 teamMember: {
     imageFileName: "team/1.jpg",
     header: "Tung Pham",
-    subheader: "Wentworth Institute of Technology 2020 Graduate",
+    subheader: "Software Engineer at SS&C Eze",
     social: {
       facebook: "j.t.x.pham",
       linkedin: "tung-pham-joseph",

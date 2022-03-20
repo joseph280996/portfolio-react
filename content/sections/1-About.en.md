@@ -5,13 +5,8 @@ subheader: "A little bit about me and what I do."
 services: [
   {
     iconName: "CodeIcon",
-    header: "Front End Developer",
-    content: "I used React in most of web development projects and Java for Android app development."
-  },
-  {
-    iconName: "LaptopIcon",
     header: "Software Engineer",
-    content: "MERN Stack FTW!"
+    content: "I'm currently a Software Engineer with a passion for Web and Internet of things (IoT)."
   },
   {
     iconName: "EducationIcon",

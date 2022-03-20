@@ -6,7 +6,7 @@ content: "Mình thường ở trên Facebook là chủ yếu nhưng mình 
 teamMember: {
     imageFileName: "team/1.jpg",
     header: "Tung Pham",
-    subheader: "Software Engineer",
+    subheader: "Software Engineer tại SS&C Eze",
     social: {
       facebook: "j.t.x.pham",
       linkedin: "tung-pham-joseph",
