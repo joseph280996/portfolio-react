@@ -1,7 +1,7 @@
 ---
 anchor: "About"
 header: "About"
-subheader: "A little bit about me and what I do."
+subheader: "Who am I really?!"
 services: [
   {
     iconName: "CodeIcon",
@@ -10,8 +10,13 @@ services: [
   },
   {
     iconName: "EducationIcon",
-    header: "Graduate from WIT",
-    content: "I'm majoring in Computer Engineer and minor in Computer Science."
+    header: "Computer Engineer and Scientist",
+    content: "I graduated from WIT with a bachelor's degree in Computer Engineer and minor in Computer Science."
+  },
+  {
+    iconName: "GearIcon",
+    header: "Tinker",
+    content: "I like to tinker with things and also discover ergonomics related DIY projects."
   }
 ]
 ---
