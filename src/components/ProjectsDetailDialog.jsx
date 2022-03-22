@@ -6,7 +6,7 @@ import Image from 'components/Image'
 import LinkCard from 'components/LinkCard'
 import Icon from './Icon'
 
-const PortfolioDetailDialog = ({
+const ProjectsDetailDialog = ({
   onHide,
   imageFileName,
   imageAlt,
@@ -54,7 +54,7 @@ const PortfolioDetailDialog = ({
   )
 }
 
-PortfolioDetailDialog.propTypes = {
+ProjectsDetailDialog.propTypes = {
   onHide: PropTypes.func,
   imageFileName: PropTypes.string,
   imageAlt: PropTypes.string,
@@ -71,7 +71,7 @@ PortfolioDetailDialog.propTypes = {
   ),
 }
 
-PortfolioDetailDialog.defaultProps = {
+ProjectsDetailDialog.defaultProps = {
   onHide: null,
   imageFileName: '',
   imageAlt: null,
@@ -82,4 +82,4 @@ PortfolioDetailDialog.defaultProps = {
   links: null,
 }
 
-export default PortfolioDetailDialog
+export default ProjectsDetailDialog
