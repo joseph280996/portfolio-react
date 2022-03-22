@@ -1,45 +1,45 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import clsx from "clsx";
+import clsx from 'clsx'
 
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav } from 'react-bootstrap'
 
-import useWindowOnScroll from "hooks/useWindowOnScroll";
-import useSmoothScrollTo from "hooks/useSmoothScrollTo";
-import Icon from "components/Icon";
-import NavItem from "components/NavItem";
+import useWindowOnScroll from 'hooks/useWindowOnScroll'
+import useSmoothScrollTo from 'hooks/useSmoothScrollTo'
+import Icon from 'components/Icon'
+import NavItem from 'components/NavItem'
 
-import "./Navbar.scss";
-import Image from "components/Image";
+import './Navbar.scss'
+import Image from 'components/Image'
 
-const MyNavbar = ({ anchors, frontmatter, extraItems }) => {
-  const { brand, menuText, imageFileName } = frontmatter;
+const MyNavbar = ({ anchors, frontmatter: { brand, menuText, imageFileName }, extraItems }) => {
+  console.log(imageFileName)
 
-  const handleScrollToTop = useSmoothScrollTo(0);
+  const handleScrollToTop = useSmoothScrollTo(0)
 
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState(false)
   const toggleMenu = React.useCallback(() => {
-    setExpanded(!expanded);
-  }, [expanded]);
+    setExpanded(!expanded)
+  }, [expanded])
   const closeMenu = React.useCallback(() => {
-    setExpanded(false);
-  }, []);
+    setExpanded(false)
+  }, [])
   const handleBrandClick = React.useCallback(() => {
-    closeMenu();
-    handleScrollToTop();
-  }, [closeMenu, handleScrollToTop]);
+    closeMenu()
+    handleScrollToTop()
+  }, [closeMenu, handleScrollToTop])
 
-  const [shrink, setShrink] = React.useState(false);
+  const [shrink, setShrink] = React.useState(false)
   const handleWindowScroll = React.useCallback(() => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    setShrink(scrollTop > 100);
-  }, []);
-  useWindowOnScroll(handleWindowScroll);
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+    setShrink(scrollTop > 100)
+  }, [])
+  useWindowOnScroll(handleWindowScroll)
 
   return (
     <Navbar
-      className={clsx("navbar-root", { "navbar-shrink": shrink })}
+      className={clsx('navbar-root', { 'navbar-shrink': shrink })}
       expand="lg"
       fixed="top"
       expanded={expanded}
@@ -62,19 +62,19 @@ const MyNavbar = ({ anchors, frontmatter, extraItems }) => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
 MyNavbar.propTypes = {
   anchors: PropTypes.arrayOf(PropTypes.string),
   frontmatter: PropTypes.object,
   extraItems: PropTypes.any,
-};
+}
 
 MyNavbar.defaultProps = {
   anchors: [],
   frontmatter: {},
   extraItems: null,
-};
+}
 
-export default MyNavbar;
+export default MyNavbar
