@@ -8,7 +8,12 @@ projects: [
     imageFileNameDetail: "projects/01-full.jpg",
     header: "Pulse Monitoring",
     subheader: "Remote Monitoring and Diagnosis",
-    content: "Description: This is the project where I worked with professor Chen-Hsiang Yu at WIT. We tried to designed a device that capable of collecting and visualizing pulse wrist pulse data to help chinese medicine practitioners in diagnosing their patients. Right now we are trying to applied data analysis and data processing to the gathered data.",
+    contentSections: [
+      {
+        sectionHeader: "Description",
+        sectionText: "This is the project where I worked with professor Chen-Hsiang Yu at WIT. We tried to designed a device that capable of collecting and visualizing pulse wrist pulse data to help chinese medicine practitioners in diagnosing their patients. Right now we are trying to applied data analysis and data processing to the gathered data."
+      }
+    ],
     extraInfo: ["Start Date: October 2018", "Status: Ongoing", "Publication: MIT URTC 2020", "Lightning talk: MIT URTC 2019 "],
     links: [
       {
@@ -28,7 +33,12 @@ projects: [
     imageFileNameDetail: "projects/02-full.jpg",
     header: "Smart Home",
     subheader: "Remote Monitoring and Control of In-house Climate",
-    content: "Description: The goal of the project is to propose a novel HVAC system that capable of taking temperature data from multiple rooms and redirect the heat flow from one room to another for better efficiency in heat management. The system also taking the outdoor weather into consideration for when to turn on heater, open the window or turn on the AC.",
+    contentSections: [
+      {
+        sectionHeader: "Description",
+        sectionText: The goal of the project is to propose a novel HVAC system that capable of taking temperature data from multiple rooms and redirect the heat flow from one room to another for better efficiency in heat management. The system also taking the outdoor weather into consideration for when to turn on heater, open the window or turn on the AC.",
+      }
+    ],
     extraInfo: ["Start Date: January 2020", "Status: Completed"],
     links: [
       {
@@ -47,6 +57,42 @@ projects: [
         url: "https://github.com/joseph280996/smart-home-raspPi",
       }
     ]
+  },
+  {
+    imageFileName: "projects/02-thumbnail.jpg",
+    imageFileNameDetail: "projects/02-full.jpg",
+    header: "Personal Keyboard",
+    subheader: "A 3D printed Ergonomic Keyboard",
+    contentSections: [
+      {
+        sectionHeader: "Parts",
+      },
+      {
+        sectionHeader: "3D Print the parts",
+      },
+      {
+        sectionHeader: "Panting the parts",
+      },
+      {
+        sectionHeader: "Circuit matrix",
+      },
+      {
+        sectionHeader: "Soldering",
+      },
+      {
+        sectionHeader: "Switch Modding",
+      },
+      {
+        sectionHeader: "Assembling",
+      },
+      {
+        sectionHeader: "Final Product",
+      },
+      {
+        sectionHeader: "Thoughts",
+      }
+    ],
+    extraInfo: ["Start Date: January 2021", "Status: Completed"],
   },
 ]
 ---
