@@ -1,36 +1,36 @@
-const path = require("path");
-const getBaseUrl = require("./src/utils/getBaseUrl");
-const {defaultLang, langTextMap = {}} = require("./config/site");
+const path = require('path')
+const getBaseUrl = require('./src/utils/getBaseUrl')
+const { defaultLang, langTextMap = {} } = require('./config/site')
 
 /**
  * add fileName to node for markdown files
  */
-exports.onCreateNode = ({node, actions}) => {
-  const {createNodeField} = actions;
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
 
-  if (node.internal.type === "MarkdownRemark") {
-    const fileName = path.basename(node.fileAbsolutePath, ".md");
+  if (node.internal.type === 'MarkdownRemark') {
+    const fileName = path.basename(node.fileAbsolutePath, '.md')
     createNodeField({
       node,
-      name: "fileName",
+      name: 'fileName',
       value: fileName,
-    });
+    })
 
     createNodeField({
       node,
-      name: "directoryName",
+      name: 'directoryName',
       value: path.basename(path.dirname(node.fileAbsolutePath)),
-    });
+    })
   }
-};
+}
 
 /**
  * define nullable items
  */
-exports.createSchemaCustomization = ({actions}) => {
-  const {createTypes} = actions;
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
   const typeDefs = [
-    "type MarkdownRemark implements Node { frontmatter: Frontmatter }",
+    'type MarkdownRemark implements Node { frontmatter: Frontmatter }',
     `type Frontmatter {
       anchor: String
       jumpToAnchor: String
@@ -57,16 +57,17 @@ exports.createSchemaCustomization = ({actions}) => {
       github: String
     }
     `,
-  ];
+  ]
 
-  createTypes(typeDefs);
-};
+  createTypes(typeDefs)
+}
 
 /**
  * generate i18n top pages
  */
-exports.createPages = ({graphql, actions: {createPage}}) => {
-  const topIndex = path.resolve("./src/templates/top-index.jsx");
+exports.createPages = ({ graphql, actions: { createPage } }) => {
+  const topIndex = path.resolve('./src/templates/top-index.jsx')
+  const blogPost = path.resolve('./src/templates/pulsemonitoring.jsx')
 
   return new Promise((resolve, reject) => {
     resolve(
@@ -78,11 +79,11 @@ exports.createPages = ({graphql, actions: {createPage}}) => {
             }
           }
         `,
-      ).then(({errors, data}) => {
+      ).then(({ errors, data }) => {
         if (errors) {
           // eslint-disable-next-line no-console
-          console.log(errors);
-          reject(errors);
+          console.log(errors)
+          reject(errors)
         }
 
         data.allMarkdownRemark.distinct.forEach((langKey) => {
@@ -94,11 +95,23 @@ exports.createPages = ({graphql, actions: {createPage}}) => {
               defaultLang,
               langTextMap,
             },
-          });
-        });
+          })
+        })
 
-        return null;
+        data.allMarkdownRemark.distinct.forEach((langKey) => {
+          createPage({
+            path: getBaseUrl(defaultLang, langKey, 'blog/pulsemonitoring'),
+            component: blogPost,
+            context: {
+              langKey,
+              defaultLang,
+              langTextMap,
+            },
+          })
+        })
+
+        return null
       }),
-    );
-  });
-};
+    )
+  })
+}
