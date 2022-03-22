@@ -1,10 +1,18 @@
-import React from "react";
+import { Link } from 'gatsby'
+import React from 'react'
+import { Button } from 'react-bootstrap'
+import './404.scss'
 
 const NotFoundPage = () => (
-  <>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </>
-);
+  <div className="notfound-container">
+    <div className="error">
+      <h1 className="error-code">404</h1>
+      <p className="error-message">There&apos;s nothing to see here...</p>
+      <Link to="/">
+        <Button>Go back to home page</Button>
+      </Link>
+    </div>
+  </div>
+)
 
-export default NotFoundPage;
+export default NotFoundPage
