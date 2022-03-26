@@ -16,7 +16,7 @@ services: [
   {
     iconName: "GearIcon",
     header: "Tinker",
-    content: "I like to tinker with things and also discover ergonomics related DIY projects."
+    content: "I like to take things apart and also discover ergonomics related DIY projects."
   }
 ]
 ---
