@@ -43,13 +43,7 @@ export const query = graphql`
           jumpToAnchorText
           menuText
           projects {
-            links {
-              name
-              description
-              url
-            }
-            content
-            extraInfo
+            anchor
             header
             subheader
             imageFileNameDetail
