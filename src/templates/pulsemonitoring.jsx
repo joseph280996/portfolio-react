@@ -107,7 +107,6 @@ const BlogPostPage = ({ data, pathContext: { langKey, defaultLang, langTextMap }
       <LanguageSelector langKey={langKey} defaultLang={defaultLang} langTextMap={langTextMap} />
     )
   }
-  console.log(sectionsNodes)
   return (
     <>
       <SEO lang={langKey} title="Tung Pham" keywords={keywords} description={description} />
