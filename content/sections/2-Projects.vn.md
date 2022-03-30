@@ -4,6 +4,7 @@ header: "Projects"
 subheader: "Những dự án và nghiên cứu mình đã và đang thực hiện."
 projects: [
   {
+    anchor: "pulse-monitoring-1",
     imageFileName: "projects/01-thumbnail.jpg",
     imageFileNameDetail: "projects/01-full.jpg",
     header: "Theo Dõi Mạch",
@@ -24,6 +25,7 @@ projects: [
     ]
   },
   {
+    anchor: "hvac",
     imageFileName: "projects/02-thumbnail.jpg",
     imageFileNameDetail: "projects/02-full.jpg",
     header: "Smart Home",
