@@ -1,5 +1,6 @@
 const path = require('path')
 const getBaseUrl = require('./src/utils/getBaseUrl')
+const getBlogRoutingInfoFromNode = require('./src/utils/getBlogRoutingInfoFromNode')
 const { defaultLang, langTextMap = {} } = require('./config/site')
 
 /**
@@ -76,6 +77,18 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
           {
             allMarkdownRemark {
               distinct(field: fields___langKey)
+              nodes {
+                fields {
+                  langKey
+                }
+                frontmatter {
+                  anchor
+                  projects {
+                    anchor
+                    header
+                  }
+                }
+              }
             }
           }
         `,
@@ -97,16 +110,21 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
             },
           })
         })
-
+        console.log(data.allMarkdownRemark.nodes)
+        const blogsRoutingInfo = getBlogRoutingInfoFromNode(data.allMarkdownRemark.nodes)
+        console.log(blogsRoutingInfo)
         data.allMarkdownRemark.distinct.forEach((langKey) => {
-          createPage({
-            path: getBaseUrl(defaultLang, langKey, 'blog/pulsemonitoring'),
-            component: blogPost,
-            context: {
-              langKey,
-              defaultLang,
-              langTextMap,
-            },
+          const langKeyBlogRoutingInfo = blogsRoutingInfo[langKey]
+          langKeyBlogRoutingInfo.forEach((page) => {
+            createPage({
+              path: getBaseUrl(defaultLang, langKey, `blog/${page.anchor}`),
+              component: blogPost,
+              context: {
+                langKey,
+                defaultLang,
+                langTextMap,
+              },
+            })
           })
         })
 

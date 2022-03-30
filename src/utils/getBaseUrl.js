@@ -1,5 +1,5 @@
 function getBaseUrl(defaultLang, lang, customRoute) {
-  return `/${customRoute ? `${customRoute}/` : ''}${defaultLang !== lang ? `${lang}/` : ''}`
+  return `/${defaultLang !== lang ? `${lang}/` : ''}${customRoute ? `${customRoute}/` : ''}`
 }
 
 module.exports = getBaseUrl
