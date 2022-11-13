@@ -8,10 +8,13 @@ const propFilter = curry((pathList, regex) => pathSatisfies(test(regex), pathLis
 export default function breakDownAllNodes(nodes) {
   const filterByFileName = propFilter(['fields', 'fileName'])
   const filterByDirectoryName = propFilter(['fields', 'directoryName'])
+
   // top part
   const topNode = nodes.find(filterByFileName(/top/i)) || {}
+
   // navbar
   const navBarNode = nodes.find(filterByFileName(/navbar/i)) || {}
+
   // footer
   const footerNode = nodes.find(filterByFileName(/footer/i)) || {}
 

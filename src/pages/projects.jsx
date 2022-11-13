@@ -93,7 +93,7 @@ export const query = graphql`
     }
   }
 `
-const BlogPostPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } }) => {
+const BlogPostPage = ({ data, pathContext: { langKey, defaultLang, langTextMap, blogAnchor } }) => {
   const {
     site: {
       siteMetadata: { keywords, description },

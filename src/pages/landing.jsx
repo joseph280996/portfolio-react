@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Navbar from 'views/Navbar'
 import Top from 'views/Top'
@@ -14,6 +14,8 @@ import breakDownAllNodes from 'utils/breakDownAllNodes'
 import fileNameToSectionName from 'utils/fileNameToSectionName'
 
 import '../style/main.scss'
+import { Nav } from 'react-bootstrap'
+import getBaseUrl from 'utils/getBaseUrl'
 
 /**
  * get file name list from content/sections folder
@@ -42,13 +44,6 @@ export const query = graphql`
           jumpToAnchor
           jumpToAnchorText
           menuText
-          projects {
-            anchor
-            header
-            subheader
-            imageFileNameDetail
-            imageFileName
-          }
           services {
             content
             header
@@ -94,7 +89,7 @@ export const query = graphql`
   }
 `
 
-const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } }) => {
+const LandingPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } }) => {
   const {
     site: {
       siteMetadata: { keywords, description },
@@ -102,18 +97,22 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
     allMarkdownRemark: { nodes },
   } = data
   const { topNode, navBarNode, anchors, footerNode, sectionsNodes } = breakDownAllNodes(nodes)
-  let langSelectorPart
-  if (langTextMap != null && Object.keys(langTextMap).length > 1) {
-    langSelectorPart = (
+  const langSelectorPart =
+    langTextMap != null && Object.keys(langTextMap).length > 1 ? (
       <LanguageSelector langKey={langKey} defaultLang={defaultLang} langTextMap={langTextMap} />
-    )
-  }
+    ) : null
+
   return (
     <>
       <SEO lang={langKey} title="Tung Pham" keywords={keywords} description={description} />
       <Navbar
         anchors={anchors}
         frontmatter={navBarNode.frontmatter}
+        extraNavItems={
+          <Nav.Item>
+            <Link to={getBaseUrl(defaultLang, langKey, 'blog')}>BLOGS</Link>
+          </Nav.Item>
+        }
         extraItems={langSelectorPart}
       />
       <Top frontmatter={topNode.frontmatter} />
@@ -123,7 +122,7 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
           const sectionComponentName = fileNameToSectionName(fileName)
           const SectionComponent = Sections[sectionComponentName]
 
-          return SectionComponent ? (
+          return SectionComponent && frontmatter ? (
             <SectionComponent
               key={sectionComponentName}
               className={ind % 2 === 1 ? 'bg-light' : null}
@@ -137,12 +136,12 @@ const IndexPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } })
   )
 }
 
-IndexPage.propTypes = {
+LandingPage.propTypes = {
   data: PropTypes.object.isRequired,
   pathContext: PropTypes.object,
 }
 
-IndexPage.defaultProps = {
+LandingPage.defaultProps = {
   pathContext: {
     langKey: 'en',
     defaultLang: 'en',
@@ -150,4 +149,4 @@ IndexPage.defaultProps = {
   },
 }
 
-export default IndexPage
+export default LandingPage

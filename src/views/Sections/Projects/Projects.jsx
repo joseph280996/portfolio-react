@@ -20,9 +20,10 @@ const Project = ({ className, frontmatter }) => {
         <SectionHeader header={rootHeader} subheader={rootSubHeader} />
       </Row>
       <Row>
-        {projects.map(({ header, imageFileName, subheader }) => (
+        {projects.map(({ header, imageFileName, subheader, anchor: projectAnchor }) => (
           <ProjectItem
             key={header}
+            anchor={projectAnchor}
             imageFileName={imageFileName}
             header={header}
             subheader={subheader}

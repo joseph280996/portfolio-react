@@ -13,9 +13,12 @@ import NavItem from 'components/NavItem'
 import './Navbar.scss'
 import Image from 'components/Image'
 
-const MyNavbar = ({ anchors, frontmatter: { brand, menuText, imageFileName }, extraItems }) => {
-  console.log(imageFileName)
-
+const MyNavbar = ({
+  anchors,
+  frontmatter: { brand, menuText, imageFileName },
+  extraItems,
+  extraNavItems,
+}) => {
   const handleScrollToTop = useSmoothScrollTo(0)
 
   const [expanded, setExpanded] = React.useState(false)
@@ -57,6 +60,7 @@ const MyNavbar = ({ anchors, frontmatter: { brand, menuText, imageFileName }, ex
             {anchors.map((anchor) => (
               <NavItem key={anchor} to={anchor} onClick={closeMenu} />
             ))}
+            {extraNavItems}
           </Nav>
           {extraItems}
         </Navbar.Collapse>
@@ -69,12 +73,14 @@ MyNavbar.propTypes = {
   anchors: PropTypes.arrayOf(PropTypes.string),
   frontmatter: PropTypes.object,
   extraItems: PropTypes.any,
+  extraNavItems: PropTypes.any,
 }
 
 MyNavbar.defaultProps = {
   anchors: [],
   frontmatter: {},
   extraItems: null,
+  extraNavItems: null,
 }
 
 export default MyNavbar

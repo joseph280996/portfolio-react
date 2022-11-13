@@ -1,6 +1,5 @@
 const path = require('path')
 const getBaseUrl = require('./src/utils/getBaseUrl')
-const getBlogRoutingInfoFromNode = require('./src/utils/getBlogRoutingInfoFromNode')
 const { defaultLang, langTextMap = {} } = require('./config/site')
 
 /**
@@ -67,8 +66,8 @@ exports.createSchemaCustomization = ({ actions }) => {
  * generate i18n top pages
  */
 exports.createPages = ({ graphql, actions: { createPage } }) => {
-  const topIndex = path.resolve('./src/templates/top-index.jsx')
-  const blogPost = path.resolve('./src/templates/pulsemonitoring.jsx')
+  const topIndex = path.resolve('./src/pages/landing.jsx')
+  const blogPost = path.resolve('./src/pages/projects.jsx')
 
   return new Promise((resolve, reject) => {
     resolve(
@@ -76,7 +75,8 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
         `
           {
             allMarkdownRemark {
-              distinct(field: fields___langKey)
+              availableLang: distinct(field: fields___langKey)
+              blogPages: distinct(field: frontmatter___projects___anchor)
               nodes {
                 fields {
                   langKey
@@ -99,7 +99,7 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
           reject(errors)
         }
 
-        data.allMarkdownRemark.distinct.forEach((langKey) => {
+        data.allMarkdownRemark.availableLang.forEach((langKey) => {
           createPage({
             path: getBaseUrl(defaultLang, langKey),
             component: topIndex,
@@ -109,26 +109,21 @@ exports.createPages = ({ graphql, actions: { createPage } }) => {
               langTextMap,
             },
           })
-        })
-        console.log(data.allMarkdownRemark.nodes)
-        const blogsRoutingInfo = getBlogRoutingInfoFromNode(data.allMarkdownRemark.nodes)
-        console.log(blogsRoutingInfo)
-        data.allMarkdownRemark.distinct.forEach((langKey) => {
-          const langKeyBlogRoutingInfo = blogsRoutingInfo[langKey]
-          langKeyBlogRoutingInfo.forEach((page) => {
+          data.allMarkdownRemark.blogPages.forEach((page) => {
             createPage({
-              path: getBaseUrl(defaultLang, langKey, `blog/${page.anchor}`),
+              path: getBaseUrl(defaultLang, langKey, `blog/${page}`),
               component: blogPost,
               context: {
                 langKey,
                 defaultLang,
+                blogAnchor: page,
                 langTextMap,
               },
             })
           })
-        })
 
-        return null
+          return null
+        })
       }),
     )
   })
