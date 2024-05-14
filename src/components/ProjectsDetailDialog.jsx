@@ -6,7 +6,7 @@ import Image from 'components/Image'
 import LinkCard from 'components/LinkCard'
 import Icon from './Icon'
 
-const ProjectsDetailDialog = ({
+function ProjectsDetailDialog({
   onHide,
   imageFileName,
   imageAlt,
@@ -16,7 +16,7 @@ const ProjectsDetailDialog = ({
   extraInfo,
   links,
   ...restProps
-}) => {
+}) {
   return (
     <Modal
       {...restProps}

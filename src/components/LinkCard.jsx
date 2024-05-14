@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap'
 
 import './LinkCard.scss'
 
-const LinkCard = ({ url, name, description }) => {
+function LinkCard({ url, name, description }) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="link-no-decoration">
       <Card>

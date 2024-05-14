@@ -1,26 +1,26 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Button } from "react-bootstrap";
-import useSmoothScrollTo from "hooks/useSmoothScrollTo";
-import ImageCard from "components/ImageCard";
+import { Button } from 'react-bootstrap'
+import useSmoothScrollTo from 'hooks/useSmoothScrollTo'
+import ImageCard from 'components/ImageCard'
 
-const Top = ({ frontmatter }) => {
+function Top({ frontmatter }) {
   if (!frontmatter) {
-    return null;
+    return null
   }
 
-  const { header, subheader, imageFileName, jumpToAnchor, jumpToAnchorText } = frontmatter;
+  const { header, subheader, imageFileName, jumpToAnchor, jumpToAnchorText } = frontmatter
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const scrollToSection = useSmoothScrollTo(jumpToAnchor);
+  const scrollToSection = useSmoothScrollTo(jumpToAnchor)
 
-  let extraInfoPart;
+  let extraInfoPart
   if (jumpToAnchor && jumpToAnchorText) {
     extraInfoPart = (
       <Button size="xl" variant="primary" className="text-uppercase" onClick={scrollToSection}>
         {jumpToAnchorText}
       </Button>
-    );
+    )
   }
 
   return (
@@ -30,15 +30,15 @@ const Top = ({ frontmatter }) => {
       subheader={subheader}
       extraInfo={extraInfoPart}
     />
-  );
-};
+  )
+}
 
 Top.propTypes = {
   frontmatter: PropTypes.object,
-};
+}
 
 Top.defaultProps = {
   frontmatter: null,
-};
+}
 
-export default Top;
+export default Top

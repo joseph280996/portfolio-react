@@ -13,12 +13,12 @@ import NavItem from 'components/NavItem'
 import './Navbar.scss'
 import Image from 'components/Image'
 
-const MyNavbar = ({
+function MyNavbar({
   anchors,
   frontmatter: { brand, menuText, imageFileName },
   extraItems,
   extraNavItems,
-}) => {
+}) {
   const handleScrollToTop = useSmoothScrollTo(0)
 
   const [expanded, setExpanded] = React.useState(false)

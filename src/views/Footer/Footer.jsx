@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Container, Row, Col } from 'react-bootstrap'
 import * as SocialIcons from 'components/SocialIcons'
 
-const Footer = ({ frontmatter }) => {
+function Footer({ frontmatter }) {
   if (!frontmatter) {
     return null
   }

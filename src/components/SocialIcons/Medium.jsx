@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import CircleIcon from "components/CircleIcon";
+import CircleIcon from 'components/CircleIcon'
 
-const Medium = ({ userName }) => (
-  <CircleIcon href={`https://medium.com/@${userName}`} iconName="MediumIcon" />
-);
+function Medium({ userName }) {
+  return <CircleIcon href={`https://medium.com/@${userName}`} iconName="MediumIcon" />
+}
 
 Medium.propTypes = {
   userName: PropTypes.string.isRequired,
-};
+}
 
-export default Medium;
+export default Medium

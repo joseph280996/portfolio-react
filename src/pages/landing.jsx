@@ -89,7 +89,7 @@ export const query = graphql`
   }
 `
 
-const LandingPage = ({ data, pathContext: { langKey, defaultLang, langTextMap } }) => {
+function LandingPage({ data, pathContext: { langKey, defaultLang, langTextMap } }) {
   const {
     site: {
       siteMetadata: { keywords, description },

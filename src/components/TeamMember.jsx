@@ -6,13 +6,13 @@ import * as SocialIcons from "components/SocialIcons";
 
 import "./TeamMember.scss";
 
-const TeamMember = ({
+function TeamMember({
   imageFileName,
   imageAlt,
   header,
   subheader,
   social: { twitter, facebook, linkedin, github, medium },
-}) => {
+}){
   const twitterPart = twitter ? <SocialIcons.Twitter userName={twitter} /> : null;
   const facebookPart = facebook ? <SocialIcons.Facebook userName={facebook} /> : null;
   const linkedinPart = linkedin ? <SocialIcons.Linkedin userName={linkedin} /> : null;

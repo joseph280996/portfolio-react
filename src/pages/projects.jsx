@@ -5,11 +5,9 @@ import { graphql } from 'gatsby'
 import Navbar from 'views/Navbar'
 import Top from 'views/Top'
 import Footer from 'views/Footer'
-import * as Sections from 'views/Sections'
 import SEO from 'components/SEO'
 import LanguageSelector from 'components/LanguageSelector'
 
-import fileNameToSectionName from 'utils/fileNameToSectionName'
 import breakDownAllNodes from 'utils/breakDownAllNodes'
 
 export const query = graphql`
@@ -93,14 +91,14 @@ export const query = graphql`
     }
   }
 `
-const BlogPostPage = ({ data, pathContext: { langKey, defaultLang, langTextMap, blogAnchor } }) => {
+function BlogPostPage({ data, pathContext: { langKey, defaultLang, langTextMap } }) {
   const {
     site: {
       siteMetadata: { keywords, description },
     },
     allMarkdownRemark: { nodes },
   } = data
-  const { topNode, navBarNode, anchors, footerNode, sectionsNodes } = breakDownAllNodes(nodes)
+  const { topNode, navBarNode, anchors, footerNode } = breakDownAllNodes(nodes)
   let langSelectorPart
   if (langTextMap != null && Object.keys(langTextMap).length > 1) {
     langSelectorPart = (

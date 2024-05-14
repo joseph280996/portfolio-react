@@ -7,7 +7,7 @@ import SectionHeader from 'components/SectionHeader'
 import PageSection from 'components/PageSection'
 import './SocialMedia.scss'
 
-const SocialMedia = ({ className, frontmatter }) => {
+function SocialMedia({ className, frontmatter }) {
   if (!frontmatter) {
     return null
   }

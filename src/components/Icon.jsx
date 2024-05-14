@@ -1,19 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import * as AllIcons from "components/SystemIcons";
+import * as AllIcons from 'components/SystemIcons'
 
-const Icon = ({ iconName, ...restProps }) => {
-  const IconComponent = AllIcons[iconName];
+function Icon({ iconName, ...restProps }) {
+  const IconComponent = AllIcons[iconName]
   if (IconComponent == null) {
-    throw new Error(`icon [${iconName}] is not defined in config/Icons.jsx`);
+    throw new Error(`icon [${iconName}] is not defined in config/Icons.jsx`)
   }
 
-  return <IconComponent {...restProps} />;
-};
+  return <IconComponent {...restProps} />
+}
 
 Icon.propTypes = {
   iconName: PropTypes.string.isRequired,
-};
+}
 
-export default Icon;
+export default Icon

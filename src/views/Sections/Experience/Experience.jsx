@@ -9,7 +9,7 @@ import nl2br from 'utils/nl2br'
 
 import './Experience.scss'
 
-const Experience = ({ className, frontmatter }) => {
+function Experience({ className, frontmatter }) {
   if (!frontmatter) {
     return null
   }

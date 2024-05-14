@@ -8,7 +8,7 @@ import ProjectItem from 'components/ProjectItem'
 import PageSection from 'components/PageSection'
 import './Projects.scss'
 
-const Project = ({ className, frontmatter }) => {
+function Project({ className, frontmatter }) {
   if (!frontmatter) {
     return null
   }

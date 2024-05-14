@@ -1,1 +1,3 @@
-export { default } from "./Clients";
+import Clients from "./Clients";
+
+export default Clients
