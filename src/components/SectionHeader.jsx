@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import { Col } from 'react-bootstrap'
 import './SectionHeader.scss'
 
-function SectionHeader({ header, subheader, className, ...restProps }) {
+function SectionHeader({ header = '', subheader = '', className = null, ...restProps }) {
   const subheaderPart = subheader ? (
     <h3 className="section-subheading text-muted">{subheader}</h3>
   ) : null
@@ -22,12 +22,6 @@ SectionHeader.propTypes = {
   header: PropTypes.string,
   subheader: PropTypes.string,
   className: PropTypes.string,
-}
-
-SectionHeader.defaultProps = {
-  header: '',
-  subheader: '',
-  className: null,
 }
 
 export default SectionHeader

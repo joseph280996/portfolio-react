@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap'
 import useSmoothScrollTo from 'hooks/useSmoothScrollTo'
 import ImageCard from 'components/ImageCard'
 
-function Top({ frontmatter }) {
+function Top({ frontmatter = null }) {
   if (!frontmatter) {
     return null
   }
@@ -35,10 +35,6 @@ function Top({ frontmatter }) {
 
 Top.propTypes = {
   frontmatter: PropTypes.object,
-}
-
-Top.defaultProps = {
-  frontmatter: null,
 }
 
 export default Top

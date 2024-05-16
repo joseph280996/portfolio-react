@@ -8,7 +8,10 @@ import ProjectItem from 'components/ProjectItem'
 import PageSection from 'components/PageSection'
 import './Projects.scss'
 
-function Project({ className, frontmatter }) {
+function Project({
+  className= null,
+  frontmatter= null,
+}) {
   if (!frontmatter) {
     return null
   }
@@ -37,11 +40,6 @@ function Project({ className, frontmatter }) {
 Project.propTypes = {
   className: PropTypes.string,
   frontmatter: PropTypes.object,
-}
-
-Project.defaultProps = {
-  className: null,
-  frontmatter: null,
 }
 
 export default Project

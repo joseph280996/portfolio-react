@@ -14,10 +14,10 @@ import './Navbar.scss'
 import Image from 'components/Image'
 
 function MyNavbar({
-  anchors,
-  frontmatter: { brand, menuText, imageFileName },
-  extraItems,
-  extraNavItems,
+  frontmatter: { brand, menuText, imageFileName } = {},
+  anchors = [],
+  extraItems = null,
+  extraNavItems = null,
 }) {
   const handleScrollToTop = useSmoothScrollTo(0)
 
@@ -74,13 +74,6 @@ MyNavbar.propTypes = {
   frontmatter: PropTypes.object,
   extraItems: PropTypes.any,
   extraNavItems: PropTypes.any,
-}
-
-MyNavbar.defaultProps = {
-  anchors: [],
-  frontmatter: {},
-  extraItems: null,
-  extraNavItems: null,
 }
 
 export default MyNavbar

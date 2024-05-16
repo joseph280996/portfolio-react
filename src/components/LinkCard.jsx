@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap'
 
 import './LinkCard.scss'
 
-function LinkCard({ url, name, description }) {
+function LinkCard({ url = '', name = '', description = '' }) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="link-no-decoration">
       <Card>
@@ -22,12 +22,6 @@ LinkCard.propTypes = {
   url: PropTypes.string,
   name: PropTypes.string,
   description: PropTypes.string,
-}
-
-LinkCard.defaultProps = {
-  url: '',
-  name: '',
-  description: '',
 }
 
 export default LinkCard

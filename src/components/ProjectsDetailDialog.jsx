@@ -7,14 +7,14 @@ import LinkCard from 'components/LinkCard'
 import Icon from './Icon'
 
 function ProjectsDetailDialog({
-  onHide,
-  imageFileName,
-  imageAlt,
-  header,
-  subheader,
-  content,
-  extraInfo,
-  links,
+  onHide = null,
+  imageFileName = '',
+  imageAlt = null,
+  header = '',
+  subheader = '',
+  content = '',
+  extraInfo = null,
+  links = null,
   ...restProps
 }) {
   return (
@@ -69,17 +69,6 @@ ProjectsDetailDialog.propTypes = {
       description: PropTypes.string,
     }),
   ),
-}
-
-ProjectsDetailDialog.defaultProps = {
-  onHide: null,
-  imageFileName: '',
-  imageAlt: null,
-  header: '',
-  subheader: '',
-  content: '',
-  extraInfo: null,
-  links: null,
 }
 
 export default ProjectsDetailDialog

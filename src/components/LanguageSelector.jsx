@@ -10,7 +10,13 @@ import getBaseUrl from 'utils/getBaseUrl'
 
 import './LanguageSelector.scss'
 
-function LanguageSelector({ defaultLang, langKey, langTextMap }) {
+function LanguageSelector({
+  defaultLang = 'en',
+  langKey = 'en',
+  langTextMap = {
+    en: 'English',
+  },
+}) {
   return (
     <NavDropdown
       title={<IconText iconName="LanguageIcon" text={langTextMap[langKey]} />}
@@ -36,14 +42,6 @@ LanguageSelector.propTypes = {
   defaultLang: PropTypes.string,
   langKey: PropTypes.string,
   langTextMap: PropTypes.object,
-}
-
-LanguageSelector.defaultProps = {
-  defaultLang: 'en',
-  langKey: 'en',
-  langTextMap: {
-    en: 'English',
-  },
 }
 
 export default LanguageSelector

@@ -6,7 +6,7 @@ import { Row, Col } from 'react-bootstrap'
 import PageSection from 'components/PageSection'
 import Client from 'components/Client'
 
-function Clients({ className, frontmatter }) {
+function Clients({ className = null, frontmatter = null }) {
   if (!frontmatter) {
     return null
   }
@@ -29,11 +29,6 @@ function Clients({ className, frontmatter }) {
 Clients.propTypes = {
   className: PropTypes.string,
   frontmatter: PropTypes.object,
-}
-
-Clients.defaultProps = {
-  className: null,
-  frontmatter: null,
 }
 
 export default Clients

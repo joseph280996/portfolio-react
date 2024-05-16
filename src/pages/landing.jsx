@@ -89,7 +89,14 @@ export const query = graphql`
   }
 `
 
-function LandingPage({ data, pathContext: { langKey, defaultLang, langTextMap } }) {
+function LandingPage({
+  data,
+  pathContext: { langKey, defaultLang, langTextMap } = {
+    langKey: 'en',
+    defaultLang: 'en',
+    langTextMap: {},
+  },
+}) {
   const {
     site: {
       siteMetadata: { keywords, description },
@@ -139,14 +146,6 @@ function LandingPage({ data, pathContext: { langKey, defaultLang, langTextMap } 
 LandingPage.propTypes = {
   data: PropTypes.object.isRequired,
   pathContext: PropTypes.object,
-}
-
-LandingPage.defaultProps = {
-  pathContext: {
-    langKey: 'en',
-    defaultLang: 'en',
-    langTextMap: {},
-  },
 }
 
 export default LandingPage

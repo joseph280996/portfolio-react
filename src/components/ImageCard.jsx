@@ -6,7 +6,14 @@ import { Container, Card } from 'react-bootstrap'
 import Image from 'components/Image'
 import './ImageCard.scss'
 
-function ImageCard({ className, imageFileName, imageAlt, header, subheader, extraInfo }) {
+function ImageCard({
+  className = null,
+  imageFileName = null,
+  imageAlt = null,
+  header = '',
+  subheader = '',
+  extraInfo = null,
+}) {
   return (
     <Card className={clsx('image-card bg-dark text-white text-center', className)}>
       <Image className="image" fileName={imageFileName} alt={imageAlt || header || subheader} />
@@ -30,15 +37,6 @@ ImageCard.propTypes = {
   header: PropTypes.string,
   subheader: PropTypes.string,
   extraInfo: PropTypes.any,
-}
-
-ImageCard.defaultProps = {
-  className: null,
-  imageFileName: null,
-  imageAlt: null,
-  header: '',
-  subheader: '',
-  extraInfo: null,
 }
 
 export default ImageCard

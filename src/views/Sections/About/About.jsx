@@ -7,7 +7,10 @@ import ServiceItem from 'components/ServiceItem'
 import SectionHeader from 'components/SectionHeader'
 import PageSection from 'components/PageSection'
 
-function About({ className, frontmatter }) {
+function About({
+  className= null,
+  frontmatter= null,
+}) {
   if (!frontmatter) {
     return null
   }
@@ -33,11 +36,6 @@ function About({ className, frontmatter }) {
 About.propTypes = {
   className: PropTypes.string,
   frontmatter: PropTypes.object,
-}
-
-About.defaultProps = {
-  className: null,
-  frontmatter: null,
 }
 
 export default About

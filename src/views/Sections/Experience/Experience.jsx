@@ -9,7 +9,7 @@ import nl2br from 'utils/nl2br'
 
 import './Experience.scss'
 
-function Experience({ className, frontmatter }) {
+function Experience({ className = null, frontmatter = null }) {
   if (!frontmatter) {
     return null
   }
@@ -48,11 +48,6 @@ function Experience({ className, frontmatter }) {
 Experience.propTypes = {
   className: PropTypes.string,
   frontmatter: PropTypes.object,
-}
-
-Experience.defaultProps = {
-  className: null,
-  frontmatter: null,
 }
 
 export default Experience

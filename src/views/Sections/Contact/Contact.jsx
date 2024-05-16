@@ -5,7 +5,7 @@ import { Row, Col } from 'react-bootstrap'
 import Icon from 'components/Icon'
 import PageSection from 'components/PageSection'
 
-function Contact({ className, frontmatter }) {
+function Contact({ className = null, frontmatter = null }) {
   if (!frontmatter) {
     return null
   }
@@ -42,11 +42,6 @@ function Contact({ className, frontmatter }) {
 Contact.propTypes = {
   className: PropTypes.string,
   frontmatter: PropTypes.object,
-}
-
-Contact.defaultProps = {
-  className: null,
-  frontmatter: null,
 }
 
 export default Contact

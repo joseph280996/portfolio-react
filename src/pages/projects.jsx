@@ -91,7 +91,14 @@ export const query = graphql`
     }
   }
 `
-function BlogPostPage({ data, pathContext: { langKey, defaultLang, langTextMap } }) {
+function BlogPostPage({
+  data,
+  pathContext: { langKey, defaultLang, langTextMap } = {
+    langKey: 'en',
+    defaultLang: 'en',
+    langTextMap: {},
+  },
+}) {
   const {
     site: {
       siteMetadata: { keywords, description },
@@ -124,11 +131,4 @@ BlogPostPage.propTypes = {
   pathContext: PropTypes.object,
 }
 
-BlogPostPage.defaultProps = {
-  pathContext: {
-    langKey: 'en',
-    defaultLang: 'en',
-    langTextMap: {},
-  },
-}
 export default BlogPostPage

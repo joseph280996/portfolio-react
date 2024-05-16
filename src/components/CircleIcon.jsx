@@ -4,7 +4,7 @@ import Icon from 'components/Icon'
 
 import './CircleIcon.scss'
 
-function CircleIcon({ href, iconName }) {
+function CircleIcon({ href = '', iconName = null }) {
   return (
     <a
       className="circle-icon"
@@ -21,11 +21,6 @@ function CircleIcon({ href, iconName }) {
 CircleIcon.propTypes = {
   href: PropTypes.string,
   iconName: PropTypes.string,
-}
-
-CircleIcon.defaultProps = {
-  href: '',
-  iconName: null,
 }
 
 export default CircleIcon

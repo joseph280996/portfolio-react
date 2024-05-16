@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap'
 
 import './PageSection.scss'
 
-function PageSection({ children, className, ...restProps }) {
+function PageSection({ children = null, className = null, ...restProps }) {
   return (
     <section className={clsx('page-section', className)} {...restProps}>
       <Container>{children}</Container>
@@ -17,11 +17,6 @@ function PageSection({ children, className, ...restProps }) {
 PageSection.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-}
-
-PageSection.defaultProps = {
-  children: null,
-  className: null,
 }
 
 export default PageSection

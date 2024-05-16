@@ -59,6 +59,7 @@
     "clean": "gatsby clean",
     "build": "gatsby build",
     "dev": "gatsby develop",
+    "dev-wsl": "ip=$(ip addr list eth0 | awk '/inet.*brd/ {print $2}' | grep -Eo \"(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\"); npx gatsby develop -H $ip",
     "format": "prettier --write src/**/*.{js,jsx}",
     "serve": "gatsby serve",
     "eslint": "eslint ./src",
@@ -87,6 +88,7 @@
     "eslint-plugin-react": "^7.33.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "gatsby-plugin-eslint": "^4.0.3",
+    "node-sass-install": "^1.0.2",
     "prettier": "^3.0.0"
   }
 }

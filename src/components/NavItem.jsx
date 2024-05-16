@@ -6,7 +6,7 @@ import { Link } from 'react-scroll'
 
 import './NavItem.scss'
 
-function NavItem({ to, onClick, children }) {
+function NavItem({ to = '', onClick = null, children = null }) {
   return (
     <Nav.Item>
       <Link
@@ -27,12 +27,6 @@ NavItem.propTypes = {
   to: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.any,
-}
-
-NavItem.defaultProps = {
-  to: '',
-  onClick: null,
-  children: null,
 }
 
 export default NavItem

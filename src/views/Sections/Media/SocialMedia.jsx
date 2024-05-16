@@ -7,7 +7,7 @@ import SectionHeader from 'components/SectionHeader'
 import PageSection from 'components/PageSection'
 import './SocialMedia.scss'
 
-function SocialMedia({ className, frontmatter }) {
+function SocialMedia({ className = null, frontmatter = null }) {
   if (!frontmatter) {
     return null
   }
@@ -42,11 +42,6 @@ function SocialMedia({ className, frontmatter }) {
 SocialMedia.propTypes = {
   className: PropTypes.string,
   frontmatter: PropTypes.object,
-}
-
-SocialMedia.defaultProps = {
-  className: null,
-  frontmatter: null,
 }
 
 export default SocialMedia

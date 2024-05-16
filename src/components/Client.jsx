@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Image from 'components/Image'
 
-function Client({ imageFileName, href }) {
+function Client({ imageFileName, href = null }) {
   const imgPart = (
     <Image className="img-fluid d-block mx-auto" fileName={imageFileName} alt={imageFileName} />
   )
@@ -22,10 +22,6 @@ function Client({ imageFileName, href }) {
 Client.propTypes = {
   imageFileName: PropTypes.string.isRequired,
   href: PropTypes.string,
-}
-
-Client.defaultProps = {
-  href: null,
 }
 
 export default Client

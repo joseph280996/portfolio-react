@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-function Image({ fileName, alt, ...restProps }) {
+function Image({ fileName, alt = null, ...restProps }) {
   return (
     <StaticQuery
       query={graphql`
@@ -40,10 +40,6 @@ function Image({ fileName, alt, ...restProps }) {
 Image.propTypes = {
   fileName: PropTypes.string.isRequired,
   alt: PropTypes.string,
-}
-
-Image.defaultProps = {
-  alt: null,
 }
 
 export default Image

@@ -7,13 +7,13 @@ import Image from 'components/Image'
 import './TimelineItem.scss'
 
 function TimelineItem({
-  invert,
-  imageFileName,
-  imageAlt,
-  imageContent,
-  header,
-  subheader,
-  content,
+  invert = false,
+  imageFileName = '',
+  imageAlt = '',
+  imageContent = null,
+  header = '',
+  subheader = '',
+  content = '',
 }) {
   const headerPart = header ? <h4>{header}</h4> : null
   const subheaderPart = subheader ? <h4 className="subheading">{subheader}</h4> : null
@@ -51,16 +51,6 @@ TimelineItem.propTypes = {
   header: PropTypes.string,
   subheader: PropTypes.string,
   content: PropTypes.string,
-}
-
-TimelineItem.defaultProps = {
-  invert: false,
-  imageFileName: '',
-  imageAlt: '',
-  imageContent: null,
-  header: '',
-  subheader: '',
-  content: '',
 }
 
 export default TimelineItem

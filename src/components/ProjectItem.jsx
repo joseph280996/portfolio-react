@@ -8,7 +8,7 @@ import Icon from 'components/Icon'
 import './ProjectItem.scss'
 import { Link } from 'gatsby'
 
-function ProjectItem({ imageFileName, imageAlt, header, subheader }) {
+function ProjectItem({ imageAlt = '', subheader = '', imageFileName, header }) {
   return (
     <Col md={4} sm={6} className="project-item">
       <Link className="project-link" to="/blog">
@@ -36,11 +36,6 @@ ProjectItem.propTypes = {
   imageAlt: PropTypes.string,
   header: PropTypes.string.isRequired,
   subheader: PropTypes.string,
-}
-
-ProjectItem.defaultProps = {
-  imageAlt: '',
-  subheader: '',
 }
 
 export default ProjectItem

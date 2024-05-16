@@ -5,7 +5,7 @@ import CircleFAButton from 'components/CircleFAButton'
 import Image from 'components/Image'
 import './ServiceItem.scss'
 
-function ServiceItem({ iconName, imageFileName, header, content }) {
+function ServiceItem({ iconName = null, imageFileName = null, header = '', content = '' }) {
   let iconPart
   if (iconName) {
     iconPart = <CircleFAButton iconName={iconName} />
@@ -31,13 +31,6 @@ ServiceItem.propTypes = {
   imageFileName: PropTypes.string,
   header: PropTypes.string,
   content: PropTypes.string,
-}
-
-ServiceItem.defaultProps = {
-  iconName: null,
-  imageFileName: null,
-  header: '',
-  content: '',
 }
 
 export default ServiceItem
