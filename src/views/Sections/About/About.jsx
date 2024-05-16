@@ -7,10 +7,7 @@ import ServiceItem from 'components/ServiceItem'
 import SectionHeader from 'components/SectionHeader'
 import PageSection from 'components/PageSection'
 
-function About({
-  className= null,
-  frontmatter= null,
-}) {
+function About({ className = null, frontmatter = null }) {
   if (!frontmatter) {
     return null
   }

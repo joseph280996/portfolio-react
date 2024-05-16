@@ -21,15 +21,15 @@ function Contact({ className = null, frontmatter = null }) {
           <p className="text-muted mb-5">{subheader}</p>
         </Col>
       </Row>
-      <Row>
+      <Row className="justify-content-center">
         <Col lg={4} className="ml-auto text-center">
-          <Icon iconName="PhoneIcon" size="3x" className="text-muted mb-3" />
+          <Icon iconName="PhoneIcon" size="4x" className="text-muted mb-3" />
           <a className="d-block" href={`tel:${telephone}`}>
             {telephone}
           </a>
         </Col>
         <Col lg={4} className="mr-auto text-center">
-          <Icon iconName="EnvelopIcon" size="3x" className="text-muted mb-3" />
+          <Icon iconName="EnvelopIcon" size="4x" className="text-muted mb-3" />
           <a className="d-block" href={`mailto:${email}`}>
             {email}
           </a>

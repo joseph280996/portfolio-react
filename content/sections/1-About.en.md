@@ -6,16 +6,16 @@ services: [
   {
     iconName: "CodeIcon",
     header: "Software Engineer",
-    content: "I'm currently a Software Engineer with a passion for Web and Internet of things (IoT)."
+    content: "SWE@Fintech"
   },
   {
     iconName: "EducationIcon",
-    header: "Computer Engineer and Scientist",
-    content: "I graduated from WIT with a bachelor's degree in Computer Engineer and minor in Computer Science."
+    header: "Tufts' MSCS",
+    content: "I did my undergrad in Computer Engineer at WIT and currently doing my MSCS at Tufts University"
   },
   {
     iconName: "GearIcon",
-    header: "Tinker",
+    header: "Tinkerer",
     content: "I like to take things apart and also discover ergonomics related DIY projects."
   }
 ]
