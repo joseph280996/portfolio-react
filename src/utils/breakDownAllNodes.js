@@ -27,6 +27,9 @@ export default function breakDownAllNodes(nodes) {
   // anchors for NavBar
   const anchors = sectionsNodes.map(path(['frontmatter', 'anchor'])).filter(identity)
 
+  // blog top part
+  const blogTopNode = nodes.find(filterByFileName(/top\.blog/i)) || {}
+
   return {
     topNode,
     navBarNode,
@@ -34,5 +37,6 @@ export default function breakDownAllNodes(nodes) {
     sectionsNodes,
     anchors,
     blog,
+    blogTopNode,
   }
 }

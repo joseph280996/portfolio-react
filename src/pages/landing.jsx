@@ -8,6 +8,7 @@ import Footer from 'views/Footer'
 import * as Sections from 'views/Sections'
 import SEO from 'components/SEO'
 import LanguageSelector from 'components/LanguageSelector'
+import NavItem from 'components/NavItem'
 
 import 'utils/fixFontAwesome'
 import breakDownAllNodes from 'utils/breakDownAllNodes'
@@ -89,14 +90,7 @@ export const query = graphql`
   }
 `
 
-function LandingPage({
-  data,
-  pathContext: { langKey, defaultLang, langTextMap } = {
-    langKey: 'en',
-    defaultLang: 'en',
-    langTextMap: {},
-  },
-}) {
+function LandingPage({ data, pageContext: { langKey, defaultLang, langTextMap } }) {
   const {
     site: {
       siteMetadata: { keywords, description },
@@ -104,10 +98,12 @@ function LandingPage({
     allMarkdownRemark: { nodes },
   } = data
   const { topNode, navBarNode, anchors, footerNode, sectionsNodes } = breakDownAllNodes(nodes)
-  const langSelectorPart =
-    langTextMap != null && Object.keys(langTextMap).length > 1 ? (
+  let langSelectorPart
+  if (langTextMap != null && Object.keys(langTextMap).length > 1) {
+    langSelectorPart = (
       <LanguageSelector langKey={langKey} defaultLang={defaultLang} langTextMap={langTextMap} />
-    ) : null
+    )
+  }
 
   return (
     <>
@@ -117,7 +113,9 @@ function LandingPage({
         frontmatter={navBarNode.frontmatter}
         extraNavItems={
           <Nav.Item>
-            <Link to={getBaseUrl(defaultLang, langKey, 'blog')}>BLOGS</Link>
+            <Link className="nav-link cursor-pointer" to={getBaseUrl(defaultLang, langKey, 'blog')}>
+              BLOGS
+            </Link>
           </Nav.Item>
         }
         extraItems={langSelectorPart}
@@ -145,7 +143,7 @@ function LandingPage({
 
 LandingPage.propTypes = {
   data: PropTypes.object.isRequired,
-  pathContext: PropTypes.object,
+  pageContext: PropTypes.object,
 }
 
 export default LandingPage

@@ -65,66 +65,45 @@ exports.createSchemaCustomization = ({ actions }) => {
 /**
  * generate i18n top pages
  */
-exports.createPages = ({ graphql, actions: { createPage } }) => {
-  const topIndex = path.resolve('./src/pages/landing.jsx')
-  const blogPost = path.resolve('./src/pages/projects.jsx')
+exports.createPages = async ({ graphql, actions: { createPage } }) => {
+  const landingPage = path.resolve('./src/pages/landing.jsx')
+  const blogPostPage = path.resolve('./src/pages/projects.jsx')
 
-  return new Promise((resolve, reject) => {
-    resolve(
-      graphql(
-        `
-          {
-            allMarkdownRemark {
-              availableLang: distinct(field: fields___langKey)
-              blogPages: distinct(field: frontmatter___projects___anchor)
-              nodes {
-                fields {
-                  langKey
-                }
-                frontmatter {
-                  anchor
-                  projects {
-                    anchor
-                    header
-                  }
-                }
-              }
-            }
-          }
-        `,
-      ).then(({ errors, data }) => {
-        if (errors) {
-          // eslint-disable-next-line no-console
-          console.log(errors)
-          reject(errors)
-        }
+  const result = await graphql(`
+    {
+      allMarkdownRemark {
+        availableLang: distinct(field: fields___langKey)
+        blogPages: distinct(field: frontmatter___projects___anchor)
+      }
+    }
+  `)
 
-        data.allMarkdownRemark.availableLang.forEach((langKey) => {
-          createPage({
-            path: getBaseUrl(defaultLang, langKey),
-            component: topIndex,
-            context: {
-              langKey,
-              defaultLang,
-              langTextMap,
-            },
-          })
-          data.allMarkdownRemark.blogPages.forEach((page) => {
-            createPage({
-              path: getBaseUrl(defaultLang, langKey, `blog/${page}`),
-              component: blogPost,
-              context: {
-                langKey,
-                defaultLang,
-                blogAnchor: page,
-                langTextMap,
-              },
-            })
-          })
+  if (result.errors) {
+    // eslint-disable-next-line no-console
+    console.log(errors)
+    return
+  }
 
-          return null
-        })
-      }),
-    )
+  result.data.allMarkdownRemark.availableLang.forEach((langKey) => {
+    console.log(langKey)
+    createPage({
+      path: getBaseUrl(defaultLang, langKey),
+      component: landingPage,
+      context: {
+        langKey,
+        defaultLang,
+        langTextMap,
+      },
+    })
+
+    createPage({
+      path: getBaseUrl(defaultLang, langKey, `blog`),
+      component: blogPostPage,
+      context: {
+        langKey,
+        defaultLang,
+        langTextMap,
+      },
+    })
   })
 }

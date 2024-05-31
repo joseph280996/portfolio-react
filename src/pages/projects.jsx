@@ -91,21 +91,14 @@ export const query = graphql`
     }
   }
 `
-function BlogPostPage({
-  data,
-  pathContext: { langKey, defaultLang, langTextMap } = {
-    langKey: 'en',
-    defaultLang: 'en',
-    langTextMap: {},
-  },
-}) {
+function BlogPostPage({ data, pageContext: { langKey, defaultLang, langTextMap } }) {
   const {
     site: {
       siteMetadata: { keywords, description },
     },
     allMarkdownRemark: { nodes },
   } = data
-  const { topNode, navBarNode, anchors, footerNode } = breakDownAllNodes(nodes)
+  const { blogTopNode, navBarNode, anchors, footerNode } = breakDownAllNodes(nodes)
   let langSelectorPart
   if (langTextMap != null && Object.keys(langTextMap).length > 1) {
     langSelectorPart = (
@@ -120,7 +113,7 @@ function BlogPostPage({
         frontmatter={navBarNode.frontmatter}
         extraItems={langSelectorPart}
       />
-      <Top frontmatter={topNode.frontmatter} />
+      <Top frontmatter={blogTopNode.frontmatter} />
       <Footer frontmatter={footerNode.frontmatter} />
     </>
   )
@@ -128,7 +121,7 @@ function BlogPostPage({
 
 BlogPostPage.propTypes = {
   data: PropTypes.object.isRequired,
-  pathContext: PropTypes.object,
+  pageContext: PropTypes.object,
 }
 
 export default BlogPostPage

@@ -62,8 +62,8 @@ function MyNavbar({
             ))}
             {extraNavItems}
           </Nav>
-          {extraItems}
         </Navbar.Collapse>
+      {extraItems}
       </Container>
     </Navbar>
   )

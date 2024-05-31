@@ -5,6 +5,8 @@ import { Button } from 'react-bootstrap'
 import useSmoothScrollTo from 'hooks/useSmoothScrollTo'
 import ImageCard from 'components/ImageCard'
 
+import './Top.scss'
+
 function Top({ frontmatter = null }) {
   if (!frontmatter) {
     return null
@@ -17,7 +19,7 @@ function Top({ frontmatter = null }) {
   let extraInfoPart
   if (jumpToAnchor && jumpToAnchorText) {
     extraInfoPart = (
-      <Button size="xl" variant="primary" className="text-uppercase" onClick={scrollToSection}>
+      <Button size="xl" variant="primary" className="text-uppercase learn-more-btn" onClick={scrollToSection}>
         {jumpToAnchorText}
       </Button>
     )
