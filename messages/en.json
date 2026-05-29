@@ -1,0 +1,53 @@
+{
+  "Nav": {
+    "brand": "Tung Pham",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact",
+    "menu": "Menu",
+    "closeMenu": "Close menu"
+  },
+  "LocaleSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "vi": "Vietnamese"
+  },
+  "ThemeToggle": {
+    "label": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "Projects": {
+    "title": "Projects",
+    "subtitle": "Things I have built and researched.",
+    "viewProject": "View project",
+    "allProjects": "All projects",
+    "links": "Links",
+    "back": "Back to projects"
+  },
+  "Blog": {
+    "title": "Writing",
+    "subtitle": "Notes on engineering, research, and tinkering.",
+    "readPost": "Read post",
+    "allPosts": "All posts",
+    "back": "Back to writing",
+    "publishedOn": "Published {date, date, long}",
+    "readingTime": "{minutes} min read"
+  },
+  "Contact": {
+    "emailLabel": "Email",
+    "phoneLabel": "Phone"
+  },
+  "Footer": {
+    "copyright": "© {year} Tung Pham. All rights reserved.",
+    "builtWith": "Built with Next.js"
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist.",
+    "home": "Go home"
+  }
+}

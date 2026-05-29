@@ -1,0 +1,30 @@
+---
+title: "Lessons from a pulse-monitoring research project"
+description: "Reflections on building a wrist-pulse monitoring device for Traditional Chinese Medicine — and what BLE data loss taught me about real-time systems."
+date: "2020-05-20"
+tags: ["Research", "IoT", "Real-time"]
+cover: "/images/projects/pulsemonitoring-p1.jpg"
+---
+
+Over two years I worked with Professor Chen-Hsiang Yu on a device to capture and
+visualize wrist-pulse data for Traditional Chinese Medicine diagnosis. Here are a
+few things that stuck with me.
+
+## Hardware constraints shape software design
+
+Our first version published sensor data over Bluetooth Low Energy. It worked — until
+we measured the data loss. For a diagnostic tool, dropped samples aren't a cosmetic
+problem; they change what the doctor sees.
+
+## When to change the platform
+
+We eventually replaced the Arduino with a Raspberry Pi and an external ADC. Moving
+the frontend onto the device itself removed a whole class of transmission problems.
+The lesson: sometimes the right optimization is to delete the part that's failing,
+not to tune it.
+
+## Research is iteration
+
+Publishing at IEEE MIT URTC across two years taught me that a research project is a
+sequence of honest measurements. Each part of the project existed because the
+previous one exposed a real limitation.

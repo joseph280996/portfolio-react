@@ -1,0 +1,53 @@
+{
+  "Nav": {
+    "brand": "Tùng Phạm",
+    "about": "Giới thiệu",
+    "experience": "Kinh nghiệm",
+    "projects": "Dự án",
+    "blog": "Bài viết",
+    "contact": "Liên hệ",
+    "menu": "Menu",
+    "closeMenu": "Đóng menu"
+  },
+  "LocaleSwitcher": {
+    "label": "Ngôn ngữ",
+    "en": "Tiếng Anh",
+    "vi": "Tiếng Việt"
+  },
+  "ThemeToggle": {
+    "label": "Đổi giao diện",
+    "light": "Sáng",
+    "dark": "Tối",
+    "system": "Hệ thống"
+  },
+  "Projects": {
+    "title": "Dự án",
+    "subtitle": "Những thứ mình đã xây dựng và nghiên cứu.",
+    "viewProject": "Xem dự án",
+    "allProjects": "Tất cả dự án",
+    "links": "Liên kết",
+    "back": "Quay lại dự án"
+  },
+  "Blog": {
+    "title": "Bài viết",
+    "subtitle": "Ghi chép về kỹ thuật, nghiên cứu và mày mò.",
+    "readPost": "Đọc bài",
+    "allPosts": "Tất cả bài viết",
+    "back": "Quay lại bài viết",
+    "publishedOn": "Đăng ngày {date, date, long}",
+    "readingTime": "Đọc {minutes} phút"
+  },
+  "Contact": {
+    "emailLabel": "Email",
+    "phoneLabel": "Điện thoại"
+  },
+  "Footer": {
+    "copyright": "© {year} Tùng Phạm. Bảo lưu mọi quyền.",
+    "builtWith": "Xây dựng với Next.js"
+  },
+  "NotFound": {
+    "title": "Không tìm thấy trang",
+    "description": "Trang bạn đang tìm không tồn tại.",
+    "home": "Về trang chủ"
+  }
+}

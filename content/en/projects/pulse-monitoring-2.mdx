@@ -1,0 +1,41 @@
+---
+title: "Pulse Monitoring — Part 2"
+subtitle: "Pulse diagnosis device"
+summary: "An optimization of the original system focused on higher data-gathering rates and reliable real-time transmission."
+date: "2019-06-01"
+cover: "/images/projects/pulsemonitoring-p2.jpg"
+coverThumb: "/images/projects/pulsemonitoring-p2-thumbnail.jpg"
+tags: ["Research", "Raspberry Pi", "ADC", "Real-time"]
+featured: true
+order: 2
+links:
+  - label: "Android Application"
+    description: "Android API 29 implementation of the system's UI"
+    url: "https://github.com/joseph280996/Pulse-Monitoring"
+  - label: "Server Application"
+    description: "Node.js, Express.js and MongoDB implementation"
+    url: "https://github.com/joseph280996/Pulse-Monitoring-Server"
+---
+
+## Description
+
+Continuing from the first part, we began optimizing the system. As discussed in
+our first paper, the BLE transmission experienced data loss that was crucial for
+diagnosis and reduced reliability. This part focused on improving the data-gathering
+rate and transmission for better real-time visualization.
+
+## Design details
+
+We revised the system and replaced the Arduino microcontroller with a Raspberry Pi
+for more robust computation. That required adding an Analog-to-Digital Converter
+(ADC) between the circuit and the Pi's GPIO pins — previously handled by the
+Arduino's embedded ADC. We also simplified the software by removing the remote
+diagnosis layer (including the 3D-printed finger and the doctor/patient apps) and
+moved the frontend onto the Raspberry Pi, displayed on an LED screen. This reduced
+transmission time and improved the real-time experience.
+
+## Result
+
+By the end of the project we had a working device and published our work at
+IEEE MIT URTC 2020, having pitched the idea in a Lightning Talk at IEEE MIT
+URTC 2019.

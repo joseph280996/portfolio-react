@@ -1,0 +1,48 @@
+---
+title: "Pulse Monitoring — Part 1"
+subtitle: "Remote monitoring and diagnosis"
+summary: "A device that collects and visualizes wrist-pulse data to support Traditional Chinese Medicine diagnosis, with a remote-diagnosis workflow."
+date: "2018-10-01"
+cover: "/images/projects/pulsemonitoring-p1.jpg"
+coverThumb: "/images/projects/pulsemonitoring-p1-thumbnail.jpg"
+tags: ["Research", "IoT", "BLE", "Android", "Node.js"]
+featured: true
+order: 1
+links:
+  - label: "Android Application"
+    description: "Android API 29 implementation of the system's UI"
+    url: "https://github.com/joseph280996/Pulse-Monitoring"
+  - label: "Server Application"
+    description: "Node.js, Express.js and MongoDB implementation"
+    url: "https://github.com/joseph280996/Pulse-Monitoring-Server"
+---
+
+## Description
+
+Together with Professor Chen-Hsiang Yu at WIT, we designed a device capable of
+collecting and visualizing wrist-pulse data to help Traditional Chinese Medicine
+(TCM) practitioners diagnose their patients. The project ran in three parts: the
+first focused on remote diagnosis, the second optimized that system, and the
+third was more data-analysis focused.
+
+## Background
+
+In Traditional Chinese Medicine, the diagnosing process uses three fingers —
+typically the index, middle, and ring finger — placed on the patient's wrist.
+
+## Design details
+
+For the first implementation, we built a system that lets doctors diagnose
+patients remotely. Sensor values were gathered and published to any BLE-connected
+device using an Arduino Uno R3. On their mobile device, the patient could connect
+to the hardware for data gathering, contact the doctor, and let them control a
+3D-printed device that applied different pressure levels at a pulse location. On
+the doctor's side, a mobile device connected to a remote web server over WebSocket
+to communicate with the patient and receive pulse data. After a session, doctors
+could persist the data in the server's database and return to it later.
+
+## Result
+
+By the end of the project we had a working device and published our work at
+IEEE MIT URTC 2020, having pitched the idea in a Lightning Talk at IEEE MIT
+URTC 2019.
