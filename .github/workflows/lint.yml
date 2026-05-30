@@ -1,0 +1,38 @@
+name: Lint
+
+# Fast feedback on every PR and on pushes to the production branch.
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+# Cancel an in-flight run when a newer commit lands on the same ref,
+# so we never waste CI minutes linting a commit that's already stale.
+concurrency:
+  group: lint-${{ github.ref }}
+  cancel-in-progress: true
+
+# Least privilege: this job only needs to read the repo.
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          # Single source of truth — bump .nvmrc and CI follows.
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
