@@ -41,9 +41,10 @@
     "emailLabel": "Email",
     "phoneLabel": "Điện thoại"
   },
-  "Footer": {
-    "copyright": "© {year} Tùng Phạm. Bảo lưu mọi quyền.",
-    "builtWith": "Xây dựng với Next.js"
+  "About": {
+    "currentlyReading": "Đang đọc",
+    "fableLabel": "Xem giá sách của mình trên Fable",
+    "findMeOnline": "Kết nối với mình"
   },
   "NotFound": {
     "title": "Không tìm thấy trang",

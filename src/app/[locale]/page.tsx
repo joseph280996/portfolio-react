@@ -3,11 +3,12 @@ import { getTranslations } from "next-intl/server";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing, type Locale } from "@/i18n/routing";
-import { getSection, getProjects } from "@/lib/content";
+import { getSection, getProjects, getPosts } from "@/lib/content";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Experience } from "@/components/sections/experience";
 import { ProjectsPreview } from "@/components/sections/projects-preview";
+import { BlogPreview } from "@/components/sections/blog-preview";
 import { Contact } from "@/components/sections/contact";
 
 interface HomePageProps {
@@ -25,14 +26,16 @@ export default async function HomePage({ params }: HomePageProps) {
 
   const t = await getTranslations("Nav");
   const tp = await getTranslations("Projects");
+  const tb = await getTranslations("Blog");
   const tc = await getTranslations("Contact");
 
-  const [hero, about, experience, contact, projects] = await Promise.all([
+  const [hero, about, experience, contact, projects, posts] = await Promise.all([
     getSection(locale as Locale, "hero"),
     getSection(locale as Locale, "about"),
     getSection(locale as Locale, "experience"),
     getSection(locale as Locale, "contact"),
     getProjects(locale as Locale),
+    getPosts(locale as Locale),
   ]);
 
   return (
@@ -50,6 +53,13 @@ export default async function HomePage({ params }: HomePageProps) {
         title={tp("title")}
         subtitle={tp("subtitle")}
         allLabel={tp("allProjects")}
+      />
+      <BlogPreview
+        posts={posts.slice(0, 3)}
+        eyebrow={t("blog")}
+        title={tb("title")}
+        subtitle={tb("subtitle")}
+        allLabel={tb("allPosts")}
       />
       <Contact
         content={contact.frontmatter}

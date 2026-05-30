@@ -46,15 +46,15 @@ export function Hero({ content }: HeroProps) {
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm md:mx-0">
             <div
               aria-hidden
-              className="absolute -inset-3 -z-10 rounded-[calc(var(--radius)*2)] bg-accent/10"
+              className="absolute -inset-3 -z-10 rounded-[var(--radius-xl)] bg-accent/10"
             />
             <Image
               src={image}
-              alt=""
+              alt="Tung Pham"
               fill
               priority
               sizes="(max-width: 768px) 90vw, 40vw"
-              className="rounded-[calc(var(--radius)*2)] object-cover shadow-[var(--shadow-lg)]"
+              className="rounded-[var(--radius-xl)] object-cover shadow-[var(--shadow-lg)]"
             />
           </div>
         )}

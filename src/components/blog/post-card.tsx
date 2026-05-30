@@ -20,7 +20,7 @@ export function PostCard({ post, body }: PostCardProps) {
         href={`/blog/${slug}`}
         className="flex flex-col gap-3 focus-visible:outline-none"
       >
-        <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.15em] text-muted">
+        <div className="flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.15em] text-muted">
           <time dateTime={frontmatter.date}>
             {format.dateTime(new Date(frontmatter.date), {
               year: "numeric",
@@ -45,7 +45,7 @@ export function PostCard({ post, body }: PostCardProps) {
             {frontmatter.tags.map((tag) => (
               <li
                 key={tag}
-                className="rounded-full border border-border px-2.5 py-0.5 text-xs text-muted"
+                className="rounded-full border border-border px-2.5 py-0.5 font-mono text-xs text-muted"
               >
                 {tag}
               </li>

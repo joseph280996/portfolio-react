@@ -1,8 +1,10 @@
-import { Code2, GraduationCap, Wrench } from "lucide-react";
+import { Code2, GraduationCap, Wrench, Cpu, ArrowUpRight } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { SurfaceCard } from "@/components/ui/surface-card";
+import { SocialLinks } from "@/components/ui/social-links";
 import { Mdx } from "@/components/mdx/mdx";
 import type { AboutContent, ServiceIcon } from "@/lib/content-schema";
 
@@ -16,10 +18,12 @@ const ICONS: Record<ServiceIcon, LucideIcon> = {
   code: Code2,
   education: GraduationCap,
   gear: Wrench,
+  cpu: Cpu,
 };
 
 export function About({ content, body, eyebrow }: AboutProps) {
-  const { title, subtitle, services } = content;
+  const { title, subtitle, services, reading } = content;
+  const t = useTranslations("About");
 
   return (
     <section
@@ -40,7 +44,7 @@ export function About({ content, body, eyebrow }: AboutProps) {
         )}
 
         {services.length > 0 && (
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="grid gap-5 sm:grid-cols-2">
             {services.map((service) => {
               const Icon = ICONS[service.icon];
               return (
@@ -61,6 +65,47 @@ export function About({ content, body, eyebrow }: AboutProps) {
             })}
           </ul>
         )}
+
+        {reading && reading.books.length > 0 && (
+          <div className="flex max-w-[var(--content-max)] flex-col gap-5">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-accent">
+              {t("currentlyReading")}
+            </p>
+            <ul>
+              {reading.books.map((book) => (
+                <li
+                  key={book.title}
+                  className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-t border-border py-[0.85rem] last:border-b"
+                >
+                  <span className="flex-auto font-display font-semibold text-ink">
+                    {book.title}
+                  </span>
+                  <span className="shrink-0 whitespace-nowrap font-mono text-xs text-muted">
+                    {book.author}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {reading.fableUrl && (
+              <a
+                href={reading.fableUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-1.5 self-start text-sm font-medium text-accent transition-[gap] duration-[var(--duration-fast)] hover:gap-2.5"
+              >
+                {t("fableLabel")}
+                <ArrowUpRight className="h-4 w-4" aria-hidden />
+              </a>
+            )}
+          </div>
+        )}
+
+        <div className="flex flex-col items-start gap-3.5">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-accent">
+            {t("findMeOnline")}
+          </p>
+          <SocialLinks />
+        </div>
       </Container>
     </section>
   );

@@ -55,7 +55,7 @@ export function Experience({ content, eyebrow }: ExperienceProps) {
                   <p className="text-sm text-muted">{entry.org}</p>
                 </div>
               </div>
-              <p className="mt-1 text-xs font-medium uppercase tracking-[0.15em] text-accent">
+              <p className="mt-1 font-mono text-xs font-medium uppercase tracking-[0.15em] text-accent">
                 {entry.period}
               </p>
             </li>

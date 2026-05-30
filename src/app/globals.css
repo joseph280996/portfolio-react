@@ -4,26 +4,29 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
- * Design tokens — editorial / minimal-luxury.
+ * Design tokens — Tung Pham portfolio.
+ * Turquoise / navy / light-blue palette with a technical type system
+ * (Space Grotesk display · Inter body · JetBrains Mono accents).
  * Colors in oklch for perceptual uniformity; fluid type via clamp().
  */
 :root {
   /* Surfaces & ink (light) */
-  --color-bg: oklch(98.5% 0.006 90);
+  --color-bg: oklch(98.6% 0.005 220);
   --color-surface: oklch(100% 0 0);
-  --color-surface-2: oklch(96.5% 0.008 85);
-  --color-ink: oklch(23% 0.012 60);
-  --color-muted: oklch(50% 0.012 60);
-  --color-border: oklch(89% 0.008 80);
+  --color-surface-2: oklch(96.3% 0.012 218);
+  --color-ink: oklch(24% 0.028 250);
+  --color-muted: oklch(50% 0.02 240);
+  --color-border: oklch(89% 0.012 225);
 
-  /* Accent — warm terracotta */
-  --color-accent: oklch(56% 0.13 42);
-  --color-accent-strong: oklch(48% 0.14 40);
-  --color-accent-fg: oklch(98% 0.01 60);
+  /* Accent — turquoise */
+  --color-accent: oklch(64% 0.105 207);
+  --color-accent-strong: oklch(54% 0.095 210);
+  --color-accent-fg: oklch(99% 0.005 220);
 
   /* Typography */
-  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace;
 
   --text-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
   --text-sm: clamp(0.875rem, 0.84rem + 0.18vw, 0.9375rem);
@@ -33,6 +36,12 @@
   --text-2xl: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
   --text-3xl: clamp(2.25rem, 1.7rem + 2.6vw, 4rem);
   --text-hero: clamp(2.75rem, 1.4rem + 6.4vw, 7rem);
+
+  /* Type detail */
+  --tracking-eyebrow: 0.2em;
+  --tracking-tight: -0.02em;
+  --leading-body: 1.65;
+  --leading-display: 1.05;
 
   /* Spacing rhythm */
   --space-section: clamp(4rem, 3rem + 6vw, 9rem);
@@ -46,30 +55,35 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Elevation */
-  --shadow-sm: 0 1px 2px oklch(20% 0.02 60 / 0.06);
-  --shadow-md: 0 8px 24px -8px oklch(20% 0.02 60 / 0.14);
-  --shadow-lg: 0 24px 60px -16px oklch(20% 0.03 60 / 0.22);
-  --radius: 0.5rem;
+  --shadow-sm: 0 1px 2px oklch(20% 0.02 250 / 0.06);
+  --shadow-md: 0 8px 24px -8px oklch(20% 0.02 250 / 0.14);
+  --shadow-lg: 0 24px 60px -16px oklch(20% 0.03 250 / 0.22);
+
+  /* Radii */
+  --radius: 0.5rem; /* 8px — inputs, buttons, chip icons */
+  --radius-lg: 0.75rem; /* cards */
+  --radius-xl: 1rem; /* hero image frame */
+  --radius-full: 9999px; /* pills, avatars, social buttons */
 }
 
 :root.dark {
-  --color-bg: oklch(17% 0.012 65);
-  --color-surface: oklch(21% 0.014 62);
-  --color-surface-2: oklch(25% 0.016 60);
-  --color-ink: oklch(94% 0.008 80);
-  --color-muted: oklch(71% 0.012 75);
-  --color-border: oklch(32% 0.012 62);
+  --color-bg: oklch(20% 0.028 250);
+  --color-surface: oklch(24% 0.03 250);
+  --color-surface-2: oklch(28% 0.03 248);
+  --color-ink: oklch(95% 0.008 220);
+  --color-muted: oklch(72% 0.015 225);
+  --color-border: oklch(34% 0.022 246);
 
-  --color-accent: oklch(72% 0.13 48);
-  --color-accent-strong: oklch(78% 0.12 50);
-  --color-accent-fg: oklch(20% 0.02 60);
+  --color-accent: oklch(75% 0.115 200);
+  --color-accent-strong: oklch(81% 0.105 198);
+  --color-accent-fg: oklch(20% 0.028 250);
 
   --shadow-sm: 0 1px 2px oklch(0% 0 0 / 0.4);
   --shadow-md: 0 8px 24px -8px oklch(0% 0 0 / 0.55);
   --shadow-lg: 0 24px 60px -16px oklch(0% 0 0 / 0.7);
 }
 
-/* Map tokens into Tailwind's theme so utilities like bg-bg, text-ink work. */
+/* Map tokens into Tailwind's theme so utilities like bg-bg, text-ink, font-mono work. */
 @theme inline {
   --color-bg: var(--color-bg);
   --color-surface: var(--color-surface);
@@ -83,6 +97,7 @@
 
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 
   --radius-DEFAULT: var(--radius);
 
@@ -109,7 +124,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  line-height: 1.65;
+  line-height: var(--leading-body);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -118,8 +133,8 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  line-height: 1.05;
-  letter-spacing: -0.01em;
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-tight);
   font-weight: 600;
 }
 

@@ -21,15 +21,26 @@ export const heroSchema = z.object({
 });
 
 export const serviceSchema = z.object({
-  icon: z.enum(["code", "education", "gear"]).default("code"),
+  icon: z.enum(["code", "education", "gear", "cpu"]).default("code"),
   title: z.string(),
   body: z.string(),
+});
+
+export const bookSchema = z.object({
+  title: z.string(),
+  author: z.string(),
+});
+
+export const readingSchema = z.object({
+  fableUrl: z.string().url().optional(),
+  books: z.array(bookSchema).default([]),
 });
 
 export const aboutSchema = z.object({
   title: z.string(),
   subtitle: z.string().optional(),
   services: z.array(serviceSchema).default([]),
+  reading: readingSchema.optional(),
 });
 
 export const timelineEntrySchema = z.object({

@@ -1,28 +1,36 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { useFormatter } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { SurfaceCard } from "@/components/ui/surface-card";
-import type { Doc } from "@/lib/content";
-import type { ProjectFrontmatter } from "@/lib/content-schema";
+import { readingTime, type Doc } from "@/lib/content";
+import type { PostFrontmatter } from "@/lib/content-schema";
 
-interface ProjectCardProps {
-  project: Doc<ProjectFrontmatter>;
+interface PostPreviewCardProps {
+  post: Doc<PostFrontmatter>;
+  body: string;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
-  const { slug, frontmatter } = project;
-  const cover = frontmatter.coverThumb ?? frontmatter.cover;
+/**
+ * Card-style post used in the home page's blog section — mirrors ProjectCard
+ * (cover that scales on hover, title + arrow, excerpt, mono tags) with an added
+ * mono meta row. The dedicated /blog index uses the ruled list-style PostCard.
+ */
+export function PostPreviewCard({ post, body }: PostPreviewCardProps) {
+  const { slug, frontmatter } = post;
+  const format = useFormatter();
+  const minutes = readingTime(body);
 
   return (
     <SurfaceCard interactive className="group flex h-full flex-col overflow-hidden">
       <Link
-        href={`/projects/${slug}`}
+        href={`/blog/${slug}`}
         className="flex h-full flex-col focus-visible:outline-none"
       >
-        {cover && (
+        {frontmatter.cover && (
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-2">
             <Image
-              src={cover}
+              src={frontmatter.cover}
               alt=""
               fill
               sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
@@ -31,6 +39,17 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         )}
         <div className="flex flex-1 flex-col gap-3 p-6">
+          <div className="flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.15em] text-muted">
+            <time dateTime={frontmatter.date}>
+              {format.dateTime(new Date(frontmatter.date), {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </time>
+            <span aria-hidden>·</span>
+            <span>{minutes} min</span>
+          </div>
           <div className="flex items-start justify-between gap-3">
             <h3 className="text-ink" style={{ fontSize: "var(--text-lg)" }}>
               {frontmatter.title}
@@ -41,11 +60,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
             />
           </div>
           <p className="flex-1 text-sm leading-relaxed text-muted">
-            {frontmatter.summary}
+            {frontmatter.description}
           </p>
           {frontmatter.tags.length > 0 && (
             <ul className="mt-1 flex flex-wrap gap-2">
-              {frontmatter.tags.slice(0, 4).map((tag) => (
+              {frontmatter.tags.slice(0, 3).map((tag) => (
                 <li
                   key={tag}
                   className="rounded-full border border-border px-2.5 py-0.5 font-mono text-xs text-muted"

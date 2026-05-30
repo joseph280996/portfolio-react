@@ -41,9 +41,10 @@
     "emailLabel": "Email",
     "phoneLabel": "Phone"
   },
-  "Footer": {
-    "copyright": "© {year} Tung Pham. All rights reserved.",
-    "builtWith": "Built with Next.js"
+  "About": {
+    "currentlyReading": "Currently reading",
+    "fableLabel": "See my shelf on Fable",
+    "findMeOnline": "Find me online"
   },
   "NotFound": {
     "title": "Page not found",

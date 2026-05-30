@@ -1,7 +1,6 @@
 import { Mail, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { SocialLinks } from "@/components/ui/social-links";
 import { siteConfig } from "@/lib/site-config";
 import type { ContactContent } from "@/lib/content-schema";
 
@@ -53,8 +52,6 @@ export function Contact({
             {siteConfig.phone}
           </a>
         </div>
-
-        <SocialLinks />
       </Container>
     </section>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
@@ -14,12 +15,13 @@ interface NavItem {
   href: string;
 }
 
-// Section anchors point at the home page; routes point at dedicated pages.
+// Every nav item scrolls to its section on the home page; the dedicated
+// /projects and /blog index pages are reached via the "All …" buttons.
 const NAV_ITEMS: NavItem[] = [
   { key: "about", href: "/#about" },
   { key: "experience", href: "/#experience" },
-  { key: "projects", href: "/projects" },
-  { key: "blog", href: "/blog" },
+  { key: "projects", href: "/#projects" },
+  { key: "blog", href: "/#blog" },
   { key: "contact", href: "/#contact" },
 ];
 
@@ -32,10 +34,18 @@ export function SiteHeader() {
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link
           href="/"
-          className="font-display text-lg font-semibold tracking-tight text-ink"
+          className="inline-flex items-center"
+          aria-label={t("brand")}
           onClick={() => setOpen(false)}
         >
-          {t("brand")}
+          <Image
+            src="/images/signature-trim.png"
+            alt={t("brand")}
+            width={1366}
+            height={530}
+            priority
+            className="h-[1.85rem] w-auto"
+          />
         </Link>
 
         <nav
