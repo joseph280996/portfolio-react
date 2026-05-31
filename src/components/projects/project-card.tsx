@@ -48,7 +48,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               {frontmatter.tags.slice(0, 4).map((tag) => (
                 <li
                   key={tag}
-                  className="rounded-full border border-border px-2.5 py-0.5 font-mono text-xs text-muted"
+                  className="whitespace-nowrap rounded-full border border-border px-2.5 py-0.5 font-mono text-xs text-muted"
                 >
                   {tag}
                 </li>

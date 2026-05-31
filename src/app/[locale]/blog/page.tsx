@@ -34,7 +34,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
 
   return (
     <Container className="flex max-w-[var(--container-max)] flex-col gap-10 py-[var(--space-section)]">
-      <SectionHeading level={1} eyebrow={t("title")} title={t("title")} subtitle={t("subtitle")} />
+      <SectionHeading level={1} eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
       <div className="flex flex-col">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} body={post.body} />

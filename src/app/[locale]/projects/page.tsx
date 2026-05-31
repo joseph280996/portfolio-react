@@ -34,7 +34,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
 
   return (
     <Container className="flex flex-col gap-10 py-[var(--space-section)]">
-      <SectionHeading level={1} eyebrow={t("title")} title={t("title")} subtitle={t("subtitle")} />
+      <SectionHeading level={1} eyebrow={t("eyebrow")} title={t("title")} subtitle={t("subtitle")} />
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <li key={project.slug} className="h-full">
