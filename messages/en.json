@@ -21,14 +21,16 @@
     "system": "System"
   },
   "Projects": {
-    "title": "Projects",
-    "subtitle": "Things I have built and researched.",
+    "eyebrow": "Projects",
+    "title": "Things I have built",
+    "subtitle": "Work, research, and a handful of side projects.",
     "viewProject": "View project",
     "allProjects": "All projects",
     "links": "Links",
     "back": "Back to projects"
   },
   "Blog": {
+    "eyebrow": "Blog",
     "title": "Writing",
     "subtitle": "Notes on engineering, research, and tinkering.",
     "readPost": "Read post",

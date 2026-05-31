@@ -23,7 +23,7 @@ export function Contact({
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="scroll-mt-20 py-[var(--space-section)]"
+      className="scroll-mt-20 border-t border-border bg-surface-2/40 py-[var(--space-section)]"
     >
       <Container className="flex flex-col items-center gap-8 text-center">
         <SectionHeading

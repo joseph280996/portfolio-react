@@ -39,8 +39,63 @@ export function About({ content, body, eyebrow }: AboutProps) {
           subtitle={subtitle}
         />
 
-        {body.trim() && (
-          <Mdx source={body} className="text-[length:var(--text-lg)]" />
+        {/* Two-column About: bio + "find me online" on the left, the reading
+            panel on the right. Keeps the section balanced and the social links
+            up in the about area rather than stranded at the bottom. The MDX
+            margin reset top-aligns the lead's first line with the reading
+            label across the gap. */}
+        {(body.trim() || (reading && reading.books.length > 0)) && (
+          <div className="grid gap-8 md:grid-cols-2 md:items-start md:gap-12">
+            <div className="flex flex-col gap-8">
+              {body.trim() && (
+                <Mdx
+                  source={body}
+                  className="[&>:first-child]:mt-0 [&>:last-child]:mb-0"
+                />
+              )}
+
+              <div className="flex flex-col items-start gap-3.5">
+                <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-ink">
+                  {t("findMeOnline")}
+                </p>
+                <SocialLinks />
+              </div>
+            </div>
+
+            {reading && reading.books.length > 0 && (
+              <div className="flex flex-col gap-5">
+                <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-muted">
+                  {t("currentlyReading")}
+                </p>
+                <ul>
+                  {reading.books.map((book) => (
+                    <li
+                      key={book.title}
+                      className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-t border-border py-[0.85rem] last:border-b"
+                    >
+                      <span className="flex-auto font-display font-semibold text-ink">
+                        {book.title}
+                      </span>
+                      <span className="shrink-0 whitespace-nowrap font-mono text-xs text-muted">
+                        {book.author}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                {reading.fableUrl && (
+                  <a
+                    href={reading.fableUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center gap-1.5 self-start text-sm font-medium text-accent transition-[gap] duration-[var(--duration-fast)] hover:gap-2.5"
+                  >
+                    {t("fableLabel")}
+                    <ArrowUpRight className="h-4 w-4" aria-hidden />
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
         )}
 
         {services.length > 0 && (
@@ -65,47 +120,6 @@ export function About({ content, body, eyebrow }: AboutProps) {
             })}
           </ul>
         )}
-
-        {reading && reading.books.length > 0 && (
-          <div className="flex max-w-[var(--content-max)] flex-col gap-5">
-            <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-accent">
-              {t("currentlyReading")}
-            </p>
-            <ul>
-              {reading.books.map((book) => (
-                <li
-                  key={book.title}
-                  className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 border-t border-border py-[0.85rem] last:border-b"
-                >
-                  <span className="flex-auto font-display font-semibold text-ink">
-                    {book.title}
-                  </span>
-                  <span className="shrink-0 whitespace-nowrap font-mono text-xs text-muted">
-                    {book.author}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            {reading.fableUrl && (
-              <a
-                href={reading.fableUrl}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 self-start text-sm font-medium text-accent transition-[gap] duration-[var(--duration-fast)] hover:gap-2.5"
-              >
-                {t("fableLabel")}
-                <ArrowUpRight className="h-4 w-4" aria-hidden />
-              </a>
-            )}
-          </div>
-        )}
-
-        <div className="flex flex-col items-start gap-3.5">
-          <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-accent">
-            {t("findMeOnline")}
-          </p>
-          <SocialLinks />
-        </div>
       </Container>
     </section>
   );

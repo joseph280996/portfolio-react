@@ -12,8 +12,10 @@ interface SectionHeadingProps {
 }
 
 /**
- * Editorial section header: a small uppercase eyebrow, a large serif title,
- * and an optional muted subtitle. Hierarchy comes from scale contrast.
+ * Section header: a small uppercase mono eyebrow (the scannable category
+ * label, muted), a large display title (the statement), and an optional muted
+ * subtitle. Hierarchy comes from scale contrast; the turquoise accent is
+ * reserved for interactive elements, not the eyebrow.
  */
 export function SectionHeading({
   eyebrow,
@@ -34,7 +36,7 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">
+        <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-muted">
           {eyebrow}
         </span>
       )}
